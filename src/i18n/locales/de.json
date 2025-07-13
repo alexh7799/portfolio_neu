@@ -1,0 +1,16 @@
+{
+  "navbar": {
+    "portfolio": "Portfolio",
+    "whyMe": "Warum ich",
+    "skills": "Skills",
+    "projects": "Projekte",
+    "contact": "Kontakt"
+  },
+    "hero": {
+        "iam": "Hi, Ich bin",
+        "name": "Alexander Hörst",
+        "description": "Fullstack-Entwickler, der moderne Webanwendungen erstellt",
+        "technologies": "mit modernsten Technologien",
+        "button": "Entdecke meine Arbeit"
+    }
+}
