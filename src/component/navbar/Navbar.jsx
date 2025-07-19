@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './navbar.css';
 import '../../i18n/i18n';
 
 export class Navbar extends Component {
@@ -11,16 +10,6 @@ export class Navbar extends Component {
         this.state = {
             isOpen: false
         };
-    }
-
-    componentDidMount() {
-        const hash = window.location.hash;
-        if (hash) {
-            const sectionId = hash.replace('#', '');
-            setTimeout(() => {
-                document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-        }
     }
 
     changeLanguage = (lng) => {

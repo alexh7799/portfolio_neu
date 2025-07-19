@@ -12,5 +12,103 @@
     "description": "Fullstack Developer crafting modern web applications",
     "technologies": "with cutting-edge technologies",
     "button": "Explore My Work"
+  },
+  "why_me": {
+    "title": "Why me?",
+    "description": "I combine technical expertise with business understanding to deliver exceptional results.",
+    "ready_to_work": "Ready to work together?",
+    "ready_to_work_description": "Let's discuss your project and see how I can help bring your vision to life with cutting-edge technology and exceptional service.",
+    "get_in_touch": "Get In Touch",
+    "latest_tech": {
+      "title": "Innovation",
+      "description": "I stay updated with the latest technologies to bring innovative solutions.",
+      "stats": "Latest Tech Stack"
+    },
+    "client_focused": {
+      "title": "Client-Focused",
+      "description": "Your success is my success. I work closely with you to understand your needs.",
+      "stats": "50+ Happy Clients"
+    },
+    "quality_code": {
+      "title": "Quality Code",
+      "description": "Clean, maintainable, and scalable code that follows industry best practices.",
+      "stats": "5+ Years Experience"
+    },
+    "fast_delivery": {
+      "title": "Fast Delivery",
+      "description": "I deliver high-quality projects on time, every time. Your deadlines are my priority.",
+      "stats": "98% On-Time Delivery"
+    }
+  },
+  "skills": {
+    "title": "My Skills",
+    "description": "I am a fullstack developer with extensive experience in building web applications. Here are some of my core competencies:",
+    "frontend": "Frontend Development",
+    "backend": "Backend Development",
+    "databases": "Databases",
+    "devops": "DevOps and Cloud Services"
+  },
+  "projects": {
+    "title": "My Projects",
+    "description": "Here are some of the projects I have worked on recently. Each project showcases my skills and dedication to delivering high-quality solutions.",
+    "ecommerceTitle": "E-Commerce Platform",
+    "ecommerceDescription": "A full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.",
+    "taskmanagementTitle": "Task Management Application",
+    "taskmanagementDescription": "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+    "analyticsDashboardTitle": "Analytics Dashboard",
+    "analyticsDashboardDescription": "A data visualization dashboard for business analytics with interactive charts, real-time data updates, and export capabilities.",
+    "mobileBankingAppTitle": "Mobile Banking App",
+    "mobileBankingAppDescription": "A secure mobile banking application with biometric authentication, transaction history, and budget tracking features.",
+    "aiContentGeneratorTitle": "AI Content Generator",
+    "aiContentGeneratorDescription": "An AI-powered content generation platform that helps users create blog posts, social media content, and marketing copy.",
+    "socialMediaPlatformTitle": "Social Media Platform",
+    "socialMediaPlatformDescription": "A full-featured social media platform with real-time messaging, photo sharing, and advanced privacy controls."
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "description": "Have a project in mind? I'd love to hear about it. Send me a message and let's discuss how we can bring your ideas to life.",
+    "form": {
+      "title": "Send Message",
+      "name": {
+        "label": "Your Name",
+        "placeholder": "Your Name"
+      },
+      "email": {
+        "label": "Your Email",
+        "placeholder": "your@email.com"
+      },
+      "message": {
+        "label": "Your Message",
+        "placeholder": "Your Message"
+      },
+      "send": "Send Message"
+    },
+    "formError": {
+      "nameRequired": "Name is required.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Please enter a valid email address.",
+      "messageRequired": "Message is required."
+    },
+    "formSuccess": "Message sent successfully! I will get back to you as soon as possible.",
+    "formErrorGeneric": "An error occurred while sending the message. Please try again later.",
+    "getInTouch": {
+      "title": "Get In Touch",
+      "phone": "Phone",
+      "location": "Location"
+    },
+    "responseTimeTitle": "Response Time",
+    "responseTimeDescription": "I typically respond to all inquiries within 24 hours. For urgent projects, feel free to call me directly."
+  },
+  "footer": {
+    "availability": "Available for freelance projects and full-time opportunities.",
+    "description": "Fullstack developer passionate about creating modern, scalable web applications that solve real-world problems and deliver exceptional user experiences.",
+    "quickLinks": "Quick Links",
+    "whyMe": "Why Me",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "legalNotice": "Legal Notice"
   }
 }

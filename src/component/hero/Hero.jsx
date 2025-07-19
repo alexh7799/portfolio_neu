@@ -10,7 +10,7 @@ export class Hero extends React.Component {
     }
 
     scrollToNextSection = () => {
-        document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
     };
 
     render() {
@@ -22,7 +22,7 @@ export class Hero extends React.Component {
                 <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
 
                 <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-                    <div className="animate-fade-in grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-2 lg:gap-12 items-center">
+                    <div className="animate-fade-in flex flex-col-reverse md:flex-row lg:flex-row gap-4 sm:gap-6 md:gap-2 lg:gap-12 items-center"> {/* grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-2 lg:gap-12 */}
 
                         {/* Text Content */}
                         <div className="text-center lg:text-left">
@@ -60,7 +60,7 @@ export class Hero extends React.Component {
                                     <img
                                         src="/img/hero.svg"
                                         alt="John Developer"
-                                        className="w-full h-full mt-2 object-cover hover:scale-105 transition-transform duration-500"
+                                        className="w-full h-full mt-4 object-cover scale-95 hover:scale-105 transition-transform duration-500"
                                     />
                                 </div>
 

@@ -3,14 +3,14 @@ import Index from "./pages/Index";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import LegalNotice from "./pages/LegalNotice";
 import NotFound from "./pages/NotFound";
-import ScrollToTop from "./component/share/ScrollToTop";
 import './App.css'
+import ScrollToTop from "./share/ScrollToTop";
 
 
 function App() {
   return (
     <BrowserRouter>
-    <ScrollToTop />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

@@ -7,13 +7,22 @@ import { Link, useLocation } from 'react-router-dom';
 export class Footer extends Component {
   handleNavigateAndScroll = (sectionId) => {
     if (window.location.pathname === '/') {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      if (sectionId === 'legal-notice' || sectionId === 'privacy-policy') {
+        window.location.href = `/${sectionId}`;
+      } else {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
-      window.location.href = `/#${sectionId}`;
+      if (sectionId === 'legal-notice' || sectionId === 'privacy-policy') {
+        window.location.href = `/${sectionId}`;
+      } else {
+        window.location.href = `/#${sectionId}`;
+      }
     }
   } 
 
   render() {
+    const { t, i18n } = this.props;
     return (
       <footer className="bg-gray-800 border-t border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -21,23 +30,30 @@ export class Footer extends Component {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-xl font-bold text-white mb-4">Alexander Hörst</h3>
             <p className="text-gray-400 mb-4 leading-relaxed">
-              Fullstack developer passionate about creating modern, scalable web applications 
-              that solve real-world problems and deliver exceptional user experiences.
+              {t('footer.description')}
             </p>
             <p className="text-gray-400">
-              Available for freelance projects and full-time opportunities.
+              {t('footer.availability')}
             </p>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-white mb-4">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2">
+              <li>
+                <button
+                  onClick={() => this.handleNavigateAndScroll('why-me')}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  {t('footer.whyMe')}
+                </button>
+              </li>
               <li>
                 <button
                   onClick={() => this.handleNavigateAndScroll('skills')}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Skills
+                  {t('footer.skills')}
                 </button>
               </li>
               <li>
@@ -45,15 +61,7 @@ export class Footer extends Component {
                   onClick={() => this.handleNavigateAndScroll('projects')}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Projects
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => this.handleNavigateAndScroll('references')}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  References
+                  {t('footer.projects')}
                 </button>
               </li>
               <li>
@@ -61,31 +69,29 @@ export class Footer extends Component {
                   onClick={() => this.handleNavigateAndScroll('contact')}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Contact
+                  {t('footer.contact')}
                 </button>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Legal</h4>
+            <h4 className="text-lg font-semibold text-white mb-4">{t('footer.legal')}</h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   to="/privacy-policy"
                   className="text-gray-400 hover:text-white transition-colors"
-                  onClick={() => window.scrollTo(0, 0)}
                 >
-                  Privacy Policy
+                  {t('footer.privacyPolicy')}
                 </Link>
               </li>
               <li>
                 <Link
                   to="/legal-notice"
                   className="text-gray-400 hover:text-white transition-colors"
-                  onClick={() => window.scrollTo(0, 0)}
                 >
-                  Legal Notice
+                  {t('footer.legalNotice')}
                 </Link>
               </li>
             </ul>

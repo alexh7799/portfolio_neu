@@ -12,5 +12,103 @@
         "description": "Fullstack-Entwickler, der moderne Webanwendungen erstellt",
         "technologies": "mit modernsten Technologien",
         "button": "Entdecke meine Arbeit"
+    },
+  "why_me": {
+    "title": "Warum ich?",
+    "description": "Ich kombiniere technisches Fachwissen mit Geschäftssinn, um außergewöhnliche Ergebnisse zu liefern.",
+    "ready_to_work": "Bereit, zusammenzuarbeiten?",
+    "ready_to_work_description": "Lass uns dein Projekt besprechen und sehen, wie ich deine Vision mit modernster Technologie und außergewöhnlichem Service zum Leben erwecken kann.",
+    "get_in_touch": "Nimm Kontakt auf",
+    "latest_tech": {
+      "title": "Innovation",
+      "description": "Ich halte mich über die neuesten Technologien auf dem Laufenden, um innovative Lösungen zu bieten.",
+      "stats": "Neueste Tech-Stack"
+    },
+    "client_focused": {
+      "title": "Kundenorientiert",
+      "description": "Ihr Erfolg ist mein Erfolg. Ich arbeite eng mit Ihnen zusammen, um Ihre Bedürfnisse zu verstehen.",
+      "stats": "50+ zufriedene Kunden"
+    },
+    "quality_code": {
+      "title": "Qualitätscode",
+      "description": "Sauberer, wartbarer und skalierbarer Code, der den besten Praktiken der Branche folgt.",
+      "stats": "5+ Jahre Erfahrung"
+    },
+    "fast_delivery": {
+      "title": "Schnelle Lieferung",
+      "description": "Ich liefere hochwertige Projekte pünktlich, jedes Mal. Ihre Fristen haben für mich oberste Priorität.",
+      "stats": "98% pünktliche Lieferung"
     }
+  },
+  "skills": {
+    "title": "Meine Skills",
+    "description": "Ich bin ein Fullstack-Entwickler mit umfangreicher Erfahrung in der Erstellung von Webanwendungen. Hier sind einige meiner Kernkompetenzen:",
+    "frontend": "Frontend-Entwicklung",
+    "backend": "Backend-Entwicklung",
+    "databases": "Datenbanken",
+    "devops": "DevOps und Cloud-Services"
+  },
+  "projects": {
+    "title": "Meine Projekte",
+    "description": "Hier sind einige der Projekte, an denen ich kürzlich gearbeitet habe. Jedes Projekt zeigt meine Fähigkeiten und mein Engagement für die Bereitstellung hochwertiger Lösungen.",
+    "ecommerceTitle": "E-Commerce-Plattform",
+    "ecommerceDescription": "Eine Full-Stack-E-Commerce-Lösung mit React, Node.js und PostgreSQL. Zu den Funktionen gehören Benutzerauthentifizierung, Zahlungsabwicklung und ein Admin-Dashboard.",
+    "taskmanagementTitle": "Aufgabenverwaltungsanwendung",
+    "taskmanagementDescription": "Eine kollaborative Aufgabenverwaltungsanwendung mit Echtzeit-Updates, Drag-and-Drop-Funktionalität und Team-Kollaborationsfunktionen.",
+    "analyticsDashboardTitle": "Analyse-Dashboard",
+    "analyticsDashboardDescription": "Ein Datenvisualisierungs-Dashboard für Geschäftsanalyse mit interaktiven Diagrammen, Echtzeit-Datenaktualisierungen und Exportmöglichkeiten.",
+    "mobileBankingAppTitle": "Mobile Banking App",
+    "mobileBankingAppDescription": "Eine sichere mobile Banking-Anwendung mit biometrischer Authentifizierung, Transaktionshistorie und Budgetverfolgungsfunktionen.",
+    "aiContentGeneratorTitle": "AI Content Generator",
+    "aiContentGeneratorDescription": "Eine KI-gestützte Plattform zur Inhaltserstellung, die Benutzern hilft, Blogbeiträge, Social-Media-Inhalte und Marketingtexte zu erstellen.",
+    "socialMediaPlatformTitle": "Soziale Medien Plattform",
+    "socialMediaPlatformDescription": "Eine voll ausgestattete Social-Media-Plattform mit Echtzeit-Messaging, Foto-Sharing und erweiterten Datenschutzkontrollen."
+  },
+  "contact": {
+    "title": "Lass uns zusammenarbeiten",
+    "description": "Hast du ein Projekt im Kopf? Ich würde gerne davon hören. Sende mir eine Nachricht und lass uns besprechen, wie wir deine Ideen zum Leben erwecken können.",
+    "form": {
+      "title": "Nachricht senden",
+      "name": {
+        "label": "Dein Name",
+        "placeholder": "Dein Name"
+      },
+      "email": {
+        "label": "Deine E-Mail",
+        "placeholder": "deine@email.com"
+      },
+      "message": {
+        "label": "Deine Nachricht",
+        "placeholder": "Deine Nachricht"
+      },
+      "send": "Nachricht senden"
+    },
+    "formError": {
+      "nameRequired": "Name ist erforderlich.",
+      "emailRequired": "E-Mail ist erforderlich.",
+      "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse ein.",
+      "messageRequired": "Nachricht ist erforderlich."
+    },
+    "formSuccess": "Nachricht erfolgreich gesendet! Ich werde mich so schnell wie möglich bei dir melden.",
+    "formErrorGeneric": "Beim Senden der Nachricht ist ein Fehler aufgetreten. Bitte versuche es später erneut.",
+    "getInTouch": {
+      "title": "Nimm Kontakt auf",
+      "phone": "Telefon",
+      "location": "Standort"
+    },
+    "responseTimeTitle": "Antwortzeit",
+    "responseTimeDescription": "Ich antworte in der Regel innerhalb von 24 Stunden auf alle Anfragen. Bei dringenden Projekten kannst du mich gerne direkt anrufen."
+  },
+  "footer": {
+    "availability": "Verfügbar für freiberufliche Projekte und Vollzeitmöglichkeiten.",
+    "description": "Fullstack-Entwickler, der leidenschaftlich moderne, skalierbare Webanwendungen erstellt, die reale Probleme lösen und außergewöhnliche Benutzererfahrungen bieten.",
+    "quickLinks": "Schnellzugriff",
+    "whyMe": "Warum ich",
+    "skills": "Skills",
+    "projects": "Projekte",
+    "contact": "Kontakt",
+    "legal": "Rechtliches",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "legalNotice": "Impressum"
+  }
 }

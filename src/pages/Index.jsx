@@ -10,18 +10,28 @@ import Contact from '../component/contact/Contact'
 import Footer from '../component/footer/Footer'
 
 export class Index extends Component {
+    componentDidMount() {
+        const hash = window.location.hash;
+        if (hash) {
+            const sectionId = hash.replace('#', '');
+            setTimeout(() => {
+                document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    }
+
   render() {
     return (
       <div className="min-h-screen bg-gray-900 text-white">
             <Navbar />
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full fixed top-16 left-0 right-0 z-40">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full fixed top-16 left-0 right-0 z-40 pointer-events-none">
               <SocialMedia />
             </div>
             <Hero />
             <WhyMe />
             <Skills />
             <Projects />
-            <References />
+            {/* <References /> */}
             <Contact />
             <Footer />
       </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, AlertCircle } from 'lucide-react';
 import { withTranslation } from 'react-i18next';
 import '../../i18n/i18n';
 
@@ -10,127 +10,321 @@ export class Contact extends Component {
       formData: {
         name: '',
         email: '',
-        subject: '',
         message: ''
-      }
+      },
+      errors: {
+        name: '',
+        email: '',
+        message: ''
+      },
+      isSubmitting: false,
+      submitMessage: ''
     };
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', this.state.formData);
+  isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  containsSuspiciousCode = (text) => {
+    const suspiciousPatterns = [
+      /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
+      /<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi,
+      /javascript:/gi,
+      /vbscript:/gi,
+      /onload\s*=/gi,
+      /onerror\s*=/gi,
+      /onclick\s*=/gi,
+      /onmouseover\s*=/gi,
+      /<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi,
+      /<embed\b[^<]*(?:(?!<\/embed>)<[^<]*)*<\/embed>/gi,
+      /eval\s*\(/gi,
+      /document\.cookie/gi,
+      /document\.write/gi,
+      /innerHTML/gi,
+      /\bSQL\b.*?(INSERT|UPDATE|DELETE|DROP|CREATE|ALTER)/gi,
+      /UNION.*?SELECT/gi,
+      /SELECT.*?FROM/gi,
+      /<\s*\/?\s*(script|iframe|object|embed|form|input|meta|link)/gi
+    ];
+    
+    return suspiciousPatterns.some(pattern => pattern.test(text));
+  };
+
+  sanitizeText = (text) => {
+    return text
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#x27;')
+      .replace(/\//g, '&#x2F;');
+  };
+
+  validateField = (name, value) => {
+    let error = '';
+    switch (name) {
+      case 'name':
+        if (!value.trim()) {
+          error = 'Name ist erforderlich';
+        } else if (value.trim().length < 4) {
+          error = 'Name muss mindestens 4 Zeichen lang sein';
+        } else if (value.trim().length > 50) {
+          error = 'Name darf maximal 50 Zeichen lang sein';
+        } else if (this.containsSuspiciousCode(value)) {
+          error = 'Ungültige Zeichen erkannt';
+        } else if (!/^[a-zA-ZäöüÄÖÜß]+$/.test(value.trim())) {
+          error = 'Name darf nur Buchstaben enthalten';
+        }
+        break;
+      case 'email':
+        if (!value.trim()) {
+          error = 'E-Mail ist erforderlich';
+        } else if (!this.isValidEmail(value.trim())) {
+          error = 'Bitte geben Sie eine gültige E-Mail-Adresse ein';
+        } else if (value.trim().length > 100) {
+          error = 'E-Mail-Adresse ist zu lang';
+        } else if (this.containsSuspiciousCode(value)) {
+          error = 'Ungültige Zeichen erkannt';
+        }
+        break;
+      case 'message':
+        if (!value.trim()) {
+          error = 'Nachricht ist erforderlich';
+        } else if (value.trim().length < 10) {
+          error = 'Nachricht muss mindestens 10 Zeichen lang sein';
+        } else if (value.trim().length > 1000) {
+          error = 'Nachricht darf maximal 1000 Zeichen lang sein';
+        } else if (this.containsSuspiciousCode(value)) {
+          error = 'Verdächtige Inhalte erkannt. Bitte verwenden Sie nur normalen Text.';
+        }
+        break;
+      default:
+        break;
+    }
+    return error;
+  };
+
+  validateForm = () => {
+    const { formData } = this.state;
+    const errors = {};
+    let isValid = true;
+    Object.keys(formData).forEach(field => {
+      const error = this.validateField(field, formData[field]);
+      errors[field] = error;
+      if (error) isValid = false;
+    });
+    this.setState({ errors });
+    return isValid;
   };
 
   handleChange = (e) => {
+    const { name, value } = e.target;
     this.setState({
       formData: {
         ...this.state.formData,
-        [e.target.name]: e.target.value
-      }
+        [name]: value
+      },
+      errors: {
+        ...this.state.errors,
+        [name]: this.validateField(name, value)
+      },
+      submitMessage: ''
     });
   };
 
-  render() {
+  handleSubmit = (e) => {
+    e.preventDefault();
+    if (this.state.isSubmitting) return;
+    this.setState({ isSubmitting: true, submitMessage: '' });
+    if (!this.validateForm()) {
+      this.setState({ 
+        isSubmitting: false,
+        submitMessage: 'Bitte korrigieren Sie die Fehler im Formular.'
+      });
+      return;
+    }
+
+    // Zusätzliche Sicherheitsprüfung
     const { formData } = this.state;
+    const allFieldsValid = Object.values(formData).every(value => 
+      !this.containsSuspiciousCode(value)
+    );
+
+    if (!allFieldsValid) {
+      this.setState({
+        isSubmitting: false,
+        submitMessage: 'Sicherheitsvalidierung fehlgeschlagen. Bitte verwenden Sie nur normalen Text.'
+      });
+      return;
+    }
+
+    // HIER: Bereinigung nur beim Submit
+    const sanitizedFormData = {
+      name: this.sanitizeText(formData.name),
+      email: this.sanitizeText(formData.email),
+      message: this.sanitizeText(formData.message)
+    };
+
+    // Hier würdest du das bereinigte Formular an deinen Server senden
+    console.log('Original form data:', formData);
+    console.log('Sanitized form data for submission:', sanitizedFormData);
+    
+    // Simuliere API-Aufruf
+    setTimeout(() => {
+      this.setState({
+        isSubmitting: false,
+        submitMessage: 'Nachricht erfolgreich gesendet! Ich melde mich bald bei Ihnen.',
+        formData: { name: '', email: '', message: '' },
+        errors: { name: '', email: '', message: '' }
+      });
+    }, 2000);
+  };
+
+
+  render() {
+    const { t, i18n } = this.props;
+    const { formData, errors, isSubmitting, submitMessage } = this.state;
+
     return (
       <section id="contact" className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Let's Work Together
+          <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            {t('contact.title')}
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Have a project in mind? I'd love to hear about it. Send me a message and let's discuss how we can bring your ideas to life.
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
+            {t('contact.description')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
-            <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
-            
+          <div className="bg-gray-800 rounded-xl p-4 sm:p-6 md:p-8 border border-gray-700">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">{t('contact.form.title')}</h3>
+
+              {submitMessage && (
+                <div className={`mb-4 p-2 rounded-lg ${
+                  submitMessage.includes('erfolgreich') 
+                    ? 'bg-green-900/50 border border-green-500 text-green-300' 
+                    : 'bg-red-900/50 border border-red-500 text-red-300'
+                }`}>
+                  <div className="flex items-center space-x-2">
+                    <AlertCircle size={20} />
+                    <span>{submitMessage}</span>
+                  </div>
+                </div>
+              )}
+
             <form onSubmit={this.handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div>
                   <label htmlFor="name" className="block text-gray-300 mb-2">
-                    Name *
+                    {t('contact.form.name.label')} *
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={this.handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
-                    placeholder="Your Name"
-                  />
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={this.handleChange}
+                      required
+                      maxLength={50}
+                    className={`w-full px-4 py-3 bg-gray-700 border rounded-lg text-white focus:outline-none transition-colors ${
+                        errors.name 
+                          ? 'border-red-500 focus:border-red-400' 
+                          : 'border-gray-600 focus:border-blue-500'
+                      }`}
+                    placeholder={t('contact.form.name.placeholder')}
+                  disabled={isSubmitting}
+                    />
+                    {errors.name && (
+                      <p className="mt-1 text-red-400 flex text-xs items-center">
+                        <AlertCircle size={16} />
+                        <span className='text-xs'>{errors.name}</span>
+                      </p>
+                    )}
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-gray-300 mb-2">
-                    Email *
+                    {t('contact.form.email.label')} *
                   </label>
                   <input
                     type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={this.handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
-                    placeholder="your@email.com"
-                  />
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={this.handleChange}
+                      required
+                      maxLength={100}
+                    className={`w-full px-4 py-3 bg-gray-700 border rounded-lg text-white focus:outline-none transition-colors ${
+                        errors.email 
+                          ? 'border-red-500 focus:border-red-400' 
+                          : 'border-gray-600 focus:border-blue-500'
+                      }`}
+                    placeholder={t('contact.form.email.placeholder')}
+                  disabled={isSubmitting}
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-red-400 text-xs flex items-center">
+                        <AlertCircle size={16} />
+                        <span className='text-xs'>{errors.email}</span>
+                      </p>
+                    )}
                 </div>
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-gray-300 mb-2">
-                  Subject *
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={this.handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
-                  placeholder="Project Subject"
-                />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-gray-300 mb-2">
-                  Message *
+                  {t('contact.form.message.label')} *
                 </label>
                 <textarea
                   id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={this.handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
-                  placeholder="Tell me about your project..."
-                />
+                    name="message"
+                    value={formData.message}
+                    onChange={this.handleChange}
+                    required
+                    rows={6}
+                    maxLength={1000}
+                    className={`w-full px-4 py-3 bg-gray-700 border rounded-lg text-white focus:outline-none transition-colors resize-none ${
+                      errors.message 
+                        ? 'border-red-500 focus:border-red-400' 
+                        : 'border-gray-600 focus:border-blue-500'
+                    }`}
+                  placeholder={t('contact.form.message.placeholder')}
+                disabled={isSubmitting}
+                  />
+                  {errors.message && (
+                    <p className="mt-1 text-xs text-red-400 flex items-center space-x-1">
+                      <AlertCircle size={16} />
+                      <span className='text-xs'>{errors.message}</span>
+                    </p>
+                  )}
+                  <p className="mt-1 text-xs text-gray-500">
+                    {formData.message.length}/1000 Zeichen
+                  </p>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2"
-              >
-                <Send size={20} />
-                <span>Send Message</span>
+                  disabled={isSubmitting || Object.values(errors).some(error => error !== '')}
+                  className={`w-full px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 ${
+                    isSubmitting || Object.values(errors).some(error => error !== '')
+                      ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white hover:scale-105'
+                  }`}
+                >
+                  <Send size={20} />
+                  <span>
+                    {isSubmitting ? 'Wird gesendet...' : 'Nachricht senden'}
+                  </span>
               </button>
             </form>
           </div>
 
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
-              <h3 className="text-2xl font-bold text-white mb-6">Get In Touch</h3>
-              
+          <div className="space-y-8 flex flex-col">
+            <div className="bg-gray-800 rounded-xl p-4 sm:p-6 md:p-8 border border-gray-700">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">{t('contact.getInTouch.title')}</h3>
+
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg">
@@ -138,7 +332,7 @@ export class Contact extends Component {
                   </div>
                   <div>
                     <p className="text-gray-400">Email</p>
-                    <p className="text-white font-semibold">contact@johndeveloper.com</p>
+                    <p className="text-sm sm:text-md text-white font-semibold">hoerst.alexander@gmail.com</p>
                   </div>
                 </div>
 
@@ -147,8 +341,8 @@ export class Contact extends Component {
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <p className="text-gray-400">Phone</p>
-                    <p className="text-white font-semibold">+1 (555) 123-4567</p>
+                    <p className="text-gray-400">{t('contact.getInTouch.phone')}</p>
+                    <p className="text-sm sm:text-md text-white font-semibold">+49 1575 2102518</p>
                   </div>
                 </div>
 
@@ -157,50 +351,19 @@ export class Contact extends Component {
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <p className="text-gray-400">Location</p>
-                    <p className="text-white font-semibold">San Francisco, CA</p>
+                    <p className="text-gray-400">{t('contact.getInTouch.location')}</p>
+                    <p className="text-sm sm:text-md text-white font-semibold">Hörstel, DE</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
-              <h3 className="text-xl font-bold text-white mb-6">Follow Me</h3>
-              
-              <div className="flex space-x-4">
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors group"
-                >
-                  <Github className="w-6 h-6 text-gray-400 group-hover:text-white" />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors group"
-                >
-                  <Linkedin className="w-6 h-6 text-gray-400 group-hover:text-white" />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors group"
-                >
-                  <Twitter className="w-6 h-6 text-gray-400 group-hover:text-white" />
-                </a>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl p-6 border border-blue-500/20">
-              <h4 className="text-lg font-semibold text-white mb-2">
-                Response Time
+            <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl p-4 sm:p-6 md:p-8 border border-blue-500/20">
+              <h4 className="text-md sm:text-1xl font-semibold text-white mb-2">
+                {t('contact.responseTimeTitle')}
               </h4>
-              <p className="text-gray-300">
-                I typically respond to all inquiries within 24 hours. For urgent projects, feel free to call directly.
+              <p className="text-md sm:text-1xl text-gray-300">
+                {t('contact.responseTimeDescription')}
               </p>
             </div>
           </div>
