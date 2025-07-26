@@ -19,22 +19,17 @@
     "ready_to_work": "Ready to work together?",
     "ready_to_work_description": "Let's discuss your project and see how I can help bring your vision to life with cutting-edge technology and exceptional service.",
     "get_in_touch": "Get In Touch",
-    "latest_tech": {
-      "title": "Innovation",
-      "description": "I stay updated with the latest technologies to bring innovative solutions.",
-      "stats": "Latest Tech Stack"
-    },
-    "client_focused": {
+    "skill_one": {
       "title": "Client-Focused",
       "description": "Your success is my success. I work closely with you to understand your needs.",
       "stats": "50+ Happy Clients"
     },
-    "quality_code": {
+    "skill_two": {
       "title": "Quality Code",
       "description": "Clean, maintainable, and scalable code that follows industry best practices.",
       "stats": "5+ Years Experience"
     },
-    "fast_delivery": {
+    "skill_three": {
       "title": "Fast Delivery",
       "description": "I deliver high-quality projects on time, every time. Your deadlines are my priority.",
       "stats": "98% On-Time Delivery"
@@ -56,13 +51,7 @@
     "taskmanagementTitle": "Task Management Application",
     "taskmanagementDescription": "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
     "analyticsDashboardTitle": "Analytics Dashboard",
-    "analyticsDashboardDescription": "A data visualization dashboard for business analytics with interactive charts, real-time data updates, and export capabilities.",
-    "mobileBankingAppTitle": "Mobile Banking App",
-    "mobileBankingAppDescription": "A secure mobile banking application with biometric authentication, transaction history, and budget tracking features.",
-    "aiContentGeneratorTitle": "AI Content Generator",
-    "aiContentGeneratorDescription": "An AI-powered content generation platform that helps users create blog posts, social media content, and marketing copy.",
-    "socialMediaPlatformTitle": "Social Media Platform",
-    "socialMediaPlatformDescription": "A full-featured social media platform with real-time messaging, photo sharing, and advanced privacy controls."
+    "analyticsDashboardDescription": "A data visualization dashboard for business analytics with interactive charts, real-time data updates, and export capabilities."
   },
   "contact": {
     "title": "Let's Work Together",

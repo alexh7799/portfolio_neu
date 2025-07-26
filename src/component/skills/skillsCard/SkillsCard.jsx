@@ -46,7 +46,7 @@ export class SkillCard extends Component {
         return (
             <div
                 ref={this.cardRef}
-                className="skill-card preserve-3d"
+                className={`skill-card ${this.isMobile ? 'mobile-card' : ''}`}
                 onMouseMove={this.handleMouseMove}
                 onMouseLeave={this.handleMouseLeave}
             >

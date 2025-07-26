@@ -23,7 +23,7 @@ export class LanguageButton extends Component {
                     <div className="flex justify-end py-2">
                         <button
                             onClick={this.toggleLanguage}
-                            className="width-button px-6 py-2 bg-gray-800/95 backdrop-blur-sm border border-gray-700 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-all flex items-center space-x-2 font-medium"
+                            className="width-button px-6 py-2 bg-gray-800/95 backdrop-blur-sm border border-gray-700 text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg transition-all flex items-center space-x-2 font-medium"
                         >
                             <span>{i18n.language === 'de' ? 'EN' : 'DE'}</span>
 

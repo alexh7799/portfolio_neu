@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Award, Clock, Users, Lightbulb } from 'lucide-react';
+import { Wifi, BaggageClaim, MapPinned } from 'lucide-react';
+
 import { withTranslation } from 'react-i18next';
 import '../../i18n/i18n';
 import WhyMeCard from './whyMeCard/WhyMeCard';
@@ -9,28 +10,22 @@ export class WhyMe extends Component {
     const { t, i18n } = this.props;
     const reasons = [
       {
-        icon: <Clock className="w-8 h-8" />,
-        title: t('why_me.fast_delivery.title'),
-        description: t('why_me.fast_delivery.description'),
-        stats: t('why_me.fast_delivery.stats')
+        icon: <MapPinned className="w-8 h-8" />,
+        title: t('why_me.skill_one.title'),
+        description: t('why_me.skill_one.description'),
+        stats: t('why_me.skill_one.stats')
       },
       {
-        icon: <Award className="w-8 h-8" />,
-        title: t('why_me.quality_code.title'),
-        description: t('why_me.quality_code.description'),
-        stats: t('why_me.quality_code.stats')
+        icon: <Wifi className="w-8 h-8" />,
+        title: t('why_me.skill_two.title'),
+        description: t('why_me.skill_two.description'),
+        stats: t('why_me.skill_two.stats')
       },
       {
-        icon: <Users className="w-8 h-8" />,
-        title: t('why_me.client_focused.title'),
-        description: t('why_me.client_focused.description'),
-        stats: t('why_me.client_focused.stats')
-      },
-      {
-        icon: <Lightbulb className="w-8 h-8" />,
-        title: t('why_me.latest_tech.title'),
-        description: t('why_me.latest_tech.description'),
-        stats: t('why_me.latest_tech.stats')
+        icon: <BaggageClaim className="w-8 h-8" />,
+        title: t('why_me.skill_three.title'),
+        description: t('why_me.skill_three.description'),
+        stats: t('why_me.skill_three.stats')
       }
     ];
 
@@ -46,7 +41,7 @@ export class WhyMe extends Component {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {reasons.map((reason, index) => (
               <WhyMeCard
                 key={index}

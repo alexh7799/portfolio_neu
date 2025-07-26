@@ -15,26 +15,21 @@
     },
   "why_me": {
     "title": "Warum ich?",
-    "description": "Ich kombiniere technisches Fachwissen mit Geschäftssinn, um außergewöhnliche Ergebnisse zu liefern.",
+    "description": "Ich bin motiviert, kontinuierlich neue Technologien zu erlernen und mich weiterzuentwickeln. Meine Fähigkeit, komplexe Probleme zu lösen und meine Leidenschaft für das Programmieren machen mich zu einem wertvollen Mitglied Ihres Teams.",
     "ready_to_work": "Bereit, zusammenzuarbeiten?",
     "ready_to_work_description": "Lass uns dein Projekt besprechen und sehen, wie ich deine Vision mit modernster Technologie und außergewöhnlichem Service zum Leben erwecken kann.",
     "get_in_touch": "Nimm Kontakt auf",
-    "latest_tech": {
-      "title": "Innovation",
-      "description": "Ich halte mich über die neuesten Technologien auf dem Laufenden, um innovative Lösungen zu bieten.",
-      "stats": "Neueste Tech-Stack"
-    },
-    "client_focused": {
+    "skill_one": {
       "title": "Kundenorientiert",
       "description": "Ihr Erfolg ist mein Erfolg. Ich arbeite eng mit Ihnen zusammen, um Ihre Bedürfnisse zu verstehen.",
       "stats": "50+ zufriedene Kunden"
     },
-    "quality_code": {
+    "skill_two": {
       "title": "Qualitätscode",
       "description": "Sauberer, wartbarer und skalierbarer Code, der den besten Praktiken der Branche folgt.",
       "stats": "5+ Jahre Erfahrung"
     },
-    "fast_delivery": {
+    "skill_three": {
       "title": "Schnelle Lieferung",
       "description": "Ich liefere hochwertige Projekte pünktlich, jedes Mal. Ihre Fristen haben für mich oberste Priorität.",
       "stats": "98% pünktliche Lieferung"
@@ -56,13 +51,7 @@
     "taskmanagementTitle": "Aufgabenverwaltungsanwendung",
     "taskmanagementDescription": "Eine kollaborative Aufgabenverwaltungsanwendung mit Echtzeit-Updates, Drag-and-Drop-Funktionalität und Team-Kollaborationsfunktionen.",
     "analyticsDashboardTitle": "Analyse-Dashboard",
-    "analyticsDashboardDescription": "Ein Datenvisualisierungs-Dashboard für Geschäftsanalyse mit interaktiven Diagrammen, Echtzeit-Datenaktualisierungen und Exportmöglichkeiten.",
-    "mobileBankingAppTitle": "Mobile Banking App",
-    "mobileBankingAppDescription": "Eine sichere mobile Banking-Anwendung mit biometrischer Authentifizierung, Transaktionshistorie und Budgetverfolgungsfunktionen.",
-    "aiContentGeneratorTitle": "AI Content Generator",
-    "aiContentGeneratorDescription": "Eine KI-gestützte Plattform zur Inhaltserstellung, die Benutzern hilft, Blogbeiträge, Social-Media-Inhalte und Marketingtexte zu erstellen.",
-    "socialMediaPlatformTitle": "Soziale Medien Plattform",
-    "socialMediaPlatformDescription": "Eine voll ausgestattete Social-Media-Plattform mit Echtzeit-Messaging, Foto-Sharing und erweiterten Datenschutzkontrollen."
+    "analyticsDashboardDescription": "Ein Datenvisualisierungs-Dashboard für Geschäftsanalyse mit interaktiven Diagrammen, Echtzeit-Datenaktualisierungen und Exportmöglichkeiten."
   },
   "contact": {
     "title": "Lass uns zusammenarbeiten",

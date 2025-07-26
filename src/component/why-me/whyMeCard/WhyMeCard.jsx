@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './whymeCard.css'
 
 export class WhyMeCard extends Component {
     render() {
@@ -9,8 +10,8 @@ export class WhyMeCard extends Component {
                 className="group bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 md:p-8 hover:bg-gray-700/50 transition-all duration-300 border border-gray-700 hover:border-blue-500/50"
             >
                 <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg group-hover:scale-110 transition-transform">
-                        <div className="text-white">
+                    <div className="flex-shrink-0 p-3 bg-gradient-to-r from-blue-500 to-purple-600 hover-gradient-mobile rounded-lg group-hover:scale-105 md:group-hover:scale-110 transition-transform relative">
+                        <div className="text-white relative z-50">
                             {reason.icon}
                         </div>
                     </div>

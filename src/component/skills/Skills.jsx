@@ -29,7 +29,7 @@ export class Skills extends Component {
     {
       title: 'Mobile',
       icon: <Smartphone className="w-8 h-8" />,
-      skills: ['React Native', 'iOS', 'Android', 'PWA'],
+      skills: ['React Native', 'Android', 'PWA'],
       color: 'from-purple-500 to-pink-500'
     },
     {
