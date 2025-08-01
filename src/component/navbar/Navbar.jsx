@@ -37,15 +37,12 @@ export class Navbar extends Component {
     render() {
         const { t, i18n } = this.props;
         const { isOpen } = this.state;
-
         const navItems = [
             { name: t('navbar.whyMe'), href: '#why-me' },
             { name: t('navbar.skills'), href: '#skills' },
             { name: t('navbar.projects'), href: '#projects' },
             { name: t('navbar.contact'), href: '#contact' },
         ];
-
-        // Framer Motion Variants
         const mobileMenuVariants = {
             closed: {
                 opacity: 0,
@@ -64,7 +61,6 @@ export class Navbar extends Component {
                 }
             }
         };
-
         const menuItemVariants = {
             closed: {
                 opacity: 0,
@@ -83,7 +79,6 @@ export class Navbar extends Component {
                 }
             })
         };
-
         const iconVariants = {
             closed: {
                 rotate: 0,
@@ -110,17 +105,14 @@ export class Navbar extends Component {
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
-                        {/* Logo */}
                         <motion.div
                             onClick={() => this.handleNavClick('#home')}
                             className="text-xl font-bold text-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            {t('navbar.portfolio')}
+                            <img className='h-12 w-18' src="/logo.svg" alt="Alexander Hörst" />
                         </motion.div>
-
-                        {/* Desktop Navigation */}
                         <div className="hidden md:block">
                             <div className="ml-10 flex items-baseline space-x-4">
                                 {navItems.map((item, index) => (
@@ -139,8 +131,6 @@ export class Navbar extends Component {
                                 ))}
                             </div>
                         </div>
-
-                        {/* Mobile menu button */}
                         <div className="md:hidden">
                             <motion.button
                                 onClick={this.toggleMenu}
@@ -157,8 +147,6 @@ export class Navbar extends Component {
                             </motion.button>
                         </div>
                     </div>
-
-                    {/* Mobile Navigation mit Framer Motion */}
                     <AnimatePresence>
                         {isOpen && (
                             <motion.div
@@ -189,8 +177,6 @@ export class Navbar extends Component {
                                             {item.name}
                                         </motion.button>
                                     ))}
-
-
                                 </motion.div>
                             </motion.div>
                         )}

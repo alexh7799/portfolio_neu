@@ -23,9 +23,9 @@ export class WhyMeCard extends Component {
                         <p className="text-gray-400 mb-3 leading-relaxed">
                             {reason.description}
                         </p>
-                        <div className="text-blue-400 font-semibold">
+                        {/* <div className="text-blue-400 font-semibold">
                             {reason.stats}
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

@@ -8,32 +8,8 @@ export class Projects extends Component {
   render() {
     const { t, i18n } = this.props;
     
-    const project = [
-      {
-        title: t('projects.ecommerceTitle'),
-        description: t('projects.ecommerceDescription'),
-        image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop',
-        technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'AWS'],
-        liveUrl: 'https://example.com',
-        githubUrl: 'https://github.com'
-      },
-      {
-        title: t('projects.taskmanagementTitle'),
-        description: t('projects.taskmanagementDescription'),
-        image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop',
-        technologies: ['Vue.js', 'Express', 'MongoDB', 'Socket.io', 'Docker'],
-        liveUrl: 'https://example.com',
-        githubUrl: 'https://github.com'
-      },
-      {
-        title: t('projects.analyticsDashboardTitle'),
-        description: t('projects.analyticsDashboardDescription'),
-        image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&h=400&fit=crop',
-        technologies: ['React', 'D3.js', 'Python', 'FastAPI', 'Redis'],
-        liveUrl: 'https://example.com',
-        githubUrl: 'https://github.com'
-      }
-    ];
+
+    const project = t('projects.jobs', { returnObjects: true });
 
     return (
       <section id="projects" className="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
@@ -56,16 +32,16 @@ export class Projects extends Component {
 
         <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl p-4 sm:p-6 md:p-8 text-center border border-blue-500/20">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
-              {t('why_me.ready_to_work')}
+              {t('projects.ready_to_work')}
             </h3>
             <p className="text-md sm:text-1xl text-gray-300 mb-6 max-w-2xl mx-auto">
-              {t('why_me.ready_to_work_description')}
+              {t('projects.ready_to_work_description')}
             </p>
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
             >
-              {t('why_me.get_in_touch')}
+              {t('projects.get_in_touch')}
             </button>
           </div>
       </div>

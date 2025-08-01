@@ -6,32 +6,32 @@
     "projects": "Projekte",
     "contact": "Kontakt"
   },
-    "hero": {
-        "iam": "Hi, Ich bin",
-        "name": "Alexander Hörst",
-        "description": "Fullstack-Entwickler, der moderne Webanwendungen erstellt",
-        "technologies": "mit modernsten Technologien",
-        "button": "Entdecke meine Arbeit"
-    },
+  "hero": {
+    "iam": "Hi, Ich bin",
+    "name": "Alexander Hörst",
+    "description": "Ich entwickle skalierbare, performante Anwendungen mit aktuellen Technologien",
+    "technologies": "– effizient, nutzerzentriert und zukunftssicher.",
+    "button": "Entdecke meine Arbeit"
+  },
   "why_me": {
     "title": "Warum ich?",
-    "description": "Ich bin motiviert, kontinuierlich neue Technologien zu erlernen und mich weiterzuentwickeln. Meine Fähigkeit, komplexe Probleme zu lösen und meine Leidenschaft für das Programmieren machen mich zu einem wertvollen Mitglied Ihres Teams.",
-    "ready_to_work": "Bereit, zusammenzuarbeiten?",
-    "ready_to_work_description": "Lass uns dein Projekt besprechen und sehen, wie ich deine Vision mit modernster Technologie und außergewöhnlichem Service zum Leben erwecken kann.",
-    "get_in_touch": "Nimm Kontakt auf",
+    "description": "Ich bin hochmotiviert, mich ständig weiterzuentwickeln und neue Technologien zu erlernen. Mit meiner analytischen Denkweise, meiner Leidenschaft für das Programmieren und meiner Fähigkeit, komplexe Herausforderungen strukturiert zu lösen, bringe ich nicht nur technisches Know-how, sondern auch echte Begeisterung ins Team.",
+    "ready_to_work": "Bereit für den nächsten Schritt?",
+    "ready_to_work_description": "Lassen Sie uns Ihr Projekt gemeinsam verwirklichen – mit modernster Technologie, klarer Kommunikation und einem Service, der begeistert. Ich freue mich darauf, Ihre Vision kennenzulernen und sie in eine digitale Lösung zu verwandeln.",
+    "get_in_touch": "Jetzt Kontakt aufnehmen und loslegen!",
     "skill_one": {
-      "title": "Kundenorientiert",
-      "description": "Ihr Erfolg ist mein Erfolg. Ich arbeite eng mit Ihnen zusammen, um Ihre Bedürfnisse zu verstehen.",
+      "title": "Standort in Hörstel",
+      "description": "Ich arbeite aus Hörstel im Münsterland – ruhig gelegen, ideal für fokussiertes Arbeiten und dennoch bestens vernetzt für Projekte im gesamten DACH-Raum.",
       "stats": "50+ zufriedene Kunden"
     },
     "skill_two": {
-      "title": "Qualitätscode",
-      "description": "Sauberer, wartbarer und skalierbarer Code, der den besten Praktiken der Branche folgt.",
+      "title": "offen für Remote-Arbeit",
+      "description": "Effizient, fokussiert und ortsunabhängig: Ich bin auf Remote-Projekte spezialisiert und bringe umfassende Erfahrung in der digitalen Zusammenarbeit mit verteilten Teams mit.",
       "stats": "5+ Jahre Erfahrung"
     },
     "skill_three": {
-      "title": "Schnelle Lieferung",
-      "description": "Ich liefere hochwertige Projekte pünktlich, jedes Mal. Ihre Fristen haben für mich oberste Priorität.",
+      "title": "offen für Umzug",
+      "description": "Ein Ortswechsel eröffnet neue Perspektiven, fördert kreative Ideen und stärkt meine Flexibilität in Projekten. Ich bin offen für einen Umzug, wenn das Projekt und das Team passen.",
       "stats": "98% pünktliche Lieferung"
     }
   },
@@ -46,12 +46,35 @@
   "projects": {
     "title": "Meine Projekte",
     "description": "Hier sind einige der Projekte, an denen ich kürzlich gearbeitet habe. Jedes Projekt zeigt meine Fähigkeiten und mein Engagement für die Bereitstellung hochwertiger Lösungen.",
-    "ecommerceTitle": "E-Commerce-Plattform",
-    "ecommerceDescription": "Eine Full-Stack-E-Commerce-Lösung mit React, Node.js und PostgreSQL. Zu den Funktionen gehören Benutzerauthentifizierung, Zahlungsabwicklung und ein Admin-Dashboard.",
-    "taskmanagementTitle": "Aufgabenverwaltungsanwendung",
-    "taskmanagementDescription": "Eine kollaborative Aufgabenverwaltungsanwendung mit Echtzeit-Updates, Drag-and-Drop-Funktionalität und Team-Kollaborationsfunktionen.",
-    "analyticsDashboardTitle": "Analyse-Dashboard",
-    "analyticsDashboardDescription": "Ein Datenvisualisierungs-Dashboard für Geschäftsanalyse mit interaktiven Diagrammen, Echtzeit-Datenaktualisierungen und Exportmöglichkeiten."
+    "jobs": [
+      {
+        "title": "Join",
+        "description": "Aufgabenmanager inspiriert vom Kanban-System. Erstellen und organisieren Sie Aufgaben per Drag & Drop und weisen Sie Benutzer und Kategorien zu. In diesem Projekt habe ich gelernt, wie man Firebase als Backend-as-a-Service für Echtzeit-Datensynchronisation und Benutzerverwaltung implementiert. Die Entwicklung des Kanban-Boards mit Drag & Drop hat mir wertvolle Einblicke in die Gestaltung interaktiver Benutzeroberflächen gegeben.",
+        "image": "/img/join.svg",
+        "technologies": ["HTML", "CSS", "JavaScript", "Firebase"],
+        "liveUrl": "https://join.Alexander-Hörst.de/",
+        "githubUrl": "https://github.com/alexh7799/join_group_project"
+      },
+      {
+        "title": "Pokedex",
+        "description": "Eine interaktive Pokémon-Enzyklopädie, die Daten über eine REST-API abruft und detaillierte Informationen zu jedem Pokémon anzeigt. Die Anwendung bietet eine responsive Benutzeroberfläche mit Such- und Filterfunktionen. Bei diesem Projekt habe ich gelernt, wie man effektiv mit REST-APIs kommuniziert und die erhaltenen Daten dynamisch verarbeitet. Die Implementierung von Suchfunktionen und Filtern hat mein Verständnis für Datenmanipulation und asynchrone Programmierung vertieft.",
+        "image": "/img/pokedex.svg",
+        "technologies": ["HTML", "CSS", "JavaScript", "Rest API"],
+        "liveUrl": "https://pokedex.Alexander-Hörst.de/",
+        "githubUrl": "https://github.com/alexh7799/pokedex"
+      },
+      {
+        "title": "Dark Magic",
+        "description": "Ein Jump-and-Run-Spiel, das mit JavaScript und HTML5 Canvas entwickelt wurde. Es bietet eine einfache Steuerung und ein ansprechendes Gameplay. In diesem Projekt habe ich die Grundlagen der objektorientierten Programmierung (OOP) mit Klassen und Vererbung kennengelernt. Die Implementierung von Spielelogik und Character-Bewegungen hat mir ein tiefes Verständnis für die Strukturierung von Code mit OOP vermittelt.",
+        "image": "/img/dark-magic.svg",
+        "technologies": ["HTML", "CSS", "JavaScript"],
+        "liveUrl": "https://dark-magic.Alexander-Hörst.de/",
+        "githubUrl": "https://github.com/alexh7799/Dark-Magic"
+      }
+    ],
+    "ready_to_work": "Interesse geweckt? Lassen Sie uns gemeinsam durchstarten!",
+    "ready_to_work_description": "Sie planen ein ähnliches Projekt oder suchen einen zuverlässigen Entwickler für Ihr digitales Vorhaben? Ich freue mich auf Ihre Nachricht – und darauf, gemeinsam innovative Ideen in die Tat umzusetzen.",
+    "get_in_touch": "Jetzt Kontakt aufnehmen und loslegen!"
   },
   "contact": {
     "title": "Lass uns zusammenarbeiten",
@@ -70,13 +93,24 @@
         "label": "Deine Nachricht",
         "placeholder": "Deine Nachricht"
       },
-      "send": "Nachricht senden"
+      "send": "Nachricht senden",
+      "sendwait": "Wird gesendet..."
     },
     "formError": {
       "nameRequired": "Name ist erforderlich.",
+      "nameInvalidChars": "Name darf nur alphanumerische Zeichen und bestimmte Sonderzeichen enthalten.",
+      "nameTooShort": "Name muss mindestens 4 Zeichen lang sein.",
+      "nameTooLong": "Name darf maximal 50 Zeichen lang sein.",
+      "nameInvalid": "Name enthält ungültige Zeichen.",
       "emailRequired": "E-Mail ist erforderlich.",
       "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse ein.",
-      "messageRequired": "Nachricht ist erforderlich."
+      "emailTooLong": "E-Mail darf maximal 100 Zeichen lang sein.",
+      "emailInvalidChars": "E-Mail darf nur alphanumerische Zeichen und bestimmte Sonderzeichen enthalten.",
+      "messageRequired": "Nachricht ist erforderlich.",
+      "messageTooShort": "Nachricht muss mindestens 10 Zeichen lang sein.",
+      "messageTooLong": "Nachricht darf maximal 1000 Zeichen lang sein.",
+      "messageInvalid": "Verdächtige Inhalte erkannt. Bitte verwenden Sie nur normalen Text.",
+      "formInvalid": "Formular ist ungültig. Bitte überprüfen Sie Ihre Eingaben."
     },
     "formSuccess": "Nachricht erfolgreich gesendet! Ich werde mich so schnell wie möglich bei dir melden.",
     "formErrorGeneric": "Beim Senden der Nachricht ist ein Fehler aufgetreten. Bitte versuche es später erneut.",
@@ -89,8 +123,8 @@
     "responseTimeDescription": "Ich antworte in der Regel innerhalb von 24 Stunden auf alle Anfragen. Bei dringenden Projekten kannst du mich gerne direkt anrufen."
   },
   "footer": {
-    "availability": "Verfügbar für freiberufliche Projekte und Vollzeitmöglichkeiten.",
-    "description": "Fullstack-Entwickler, der leidenschaftlich moderne, skalierbare Webanwendungen erstellt, die reale Probleme lösen und außergewöhnliche Benutzererfahrungen bieten.",
+    "availability": "Verfügbar für freiberufliche Projekte und Vollzeitmöglichkeiten. Lassen Sie uns über Ihr Vorhaben sprechen – ich freue mich auf Ihre Anfrage!",
+    "description": "Fullstack-Entwickler mit Leidenschaft für moderne, skalierbare Webanwendungen. Ich entwickle digitale Lösungen, die reale Probleme lösen und außergewöhnliche Nutzererlebnisse schaffen.",
     "quickLinks": "Schnellzugriff",
     "whyMe": "Warum ich",
     "skills": "Skills",

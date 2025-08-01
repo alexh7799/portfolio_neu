@@ -48,7 +48,6 @@ export class Contact extends Component {
       /SELECT.*?FROM/gi,
       /<\s*\/?\s*(script|iframe|object|embed|form|input|meta|link)/gi
     ];
-    
     return suspiciousPatterns.some(pattern => pattern.test(text));
   };
 
@@ -65,39 +64,23 @@ export class Contact extends Component {
     let error = '';
     switch (name) {
       case 'name':
-        if (!value.trim()) {
-          error = 'Name ist erforderlich';
-        } else if (value.trim().length < 4) {
-          error = 'Name muss mindestens 4 Zeichen lang sein';
-        } else if (value.trim().length > 50) {
-          error = 'Name darf maximal 50 Zeichen lang sein';
-        } else if (this.containsSuspiciousCode(value)) {
-          error = 'Ungültige Zeichen erkannt';
-        } else if (!/^[a-zA-ZäöüÄÖÜß]+$/.test(value.trim())) {
-          error = 'Name darf nur Buchstaben enthalten';
-        }
+        if (!value.trim()) error = t('contact.formError.nameRequired');
+        else if (value.trim().length < 4) error = t('contact.formError.nameTooShort');
+        else if (value.trim().length > 50) error = t('contact.formError.nameTooLong');
+        else if (this.containsSuspiciousCode(value)) error = t('contact.formError.nameInvalid');
+        else if (!/^[a-zA-ZäöüÄÖÜß]+$/.test(value.trim())) error = t('contact.formError.nameInvalidChars');
         break;
       case 'email':
-        if (!value.trim()) {
-          error = 'E-Mail ist erforderlich';
-        } else if (!this.isValidEmail(value.trim())) {
-          error = 'Bitte geben Sie eine gültige E-Mail-Adresse ein';
-        } else if (value.trim().length > 100) {
-          error = 'E-Mail-Adresse ist zu lang';
-        } else if (this.containsSuspiciousCode(value)) {
-          error = 'Ungültige Zeichen erkannt';
-        }
+        if (!value.trim()) error = t('contact.formError.emailRequired');
+        else if (!this.isValidEmail(value.trim())) error = t('contact.formError.emailInvalid');
+        else if (value.trim().length > 100) error = t('contact.formError.emailTooLong');
+        else if (this.containsSuspiciousCode(value)) error = t('contact.formError.emailInvalidChars');
         break;
       case 'message':
-        if (!value.trim()) {
-          error = 'Nachricht ist erforderlich';
-        } else if (value.trim().length < 10) {
-          error = 'Nachricht muss mindestens 10 Zeichen lang sein';
-        } else if (value.trim().length > 1000) {
-          error = 'Nachricht darf maximal 1000 Zeichen lang sein';
-        } else if (this.containsSuspiciousCode(value)) {
-          error = 'Verdächtige Inhalte erkannt. Bitte verwenden Sie nur normalen Text.';
-        }
+        if (!value.trim()) error = t('contact.formError.messageRequired');
+        else if (value.trim().length < 10) error = t('contact.formError.messageTooShort');
+        else if (value.trim().length > 1000) error = t('contact.formError.messageTooLong');
+        else if (this.containsSuspiciousCode(value)) error = t('contact.formError.messageInvalid');
         break;
       default:
         break;
@@ -121,32 +104,30 @@ export class Contact extends Component {
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({
-      formData: {
-        ...this.state.formData,
-        [name]: value
-      },
-      errors: {
-        ...this.state.errors,
-        [name]: this.validateField(name, value)
-      },
+      formData: {...this.state.formData, [name]: value},
+      errors: {...this.state.errors, [name]: this.validateField(name, value)},
       submitMessage: ''
     });
   };
 
-  handleSubmit = (e) => {
+ handleSubmit = async (e) => {
     e.preventDefault();
     if (this.state.isSubmitting) return;
-    this.setState({ isSubmitting: true, submitMessage: '' });
+    
+    this.setState({ isSubmitting: true, submitMessage: '', submitType: '' });
+    
     if (!this.validateForm()) {
       this.setState({ 
         isSubmitting: false,
-        submitMessage: 'Bitte korrigieren Sie die Fehler im Formular.'
+        submitMessage: t('contact.formError.formInvalid'),
+        submitType: 'error'
       });
       return;
     }
 
-    // Zusätzliche Sicherheitsprüfung
     const { formData } = this.state;
+    
+    // Security check
     const allFieldsValid = Object.values(formData).every(value => 
       !this.containsSuspiciousCode(value)
     );
@@ -154,31 +135,70 @@ export class Contact extends Component {
     if (!allFieldsValid) {
       this.setState({
         isSubmitting: false,
-        submitMessage: 'Sicherheitsvalidierung fehlgeschlagen. Bitte verwenden Sie nur normalen Text.'
+        submitMessage: t('contact.formError.formInvalid'),
+        submitType: 'error'
       });
       return;
     }
 
-    // HIER: Bereinigung nur beim Submit
-    const sanitizedFormData = {
-      name: this.sanitizeText(formData.name),
-      email: this.sanitizeText(formData.email),
-      message: this.sanitizeText(formData.message)
-    };
+    try {
+      const emailData = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        message: formData.message.trim(),
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        referer: window.location.href
+      };
 
-    // Hier würdest du das bereinigte Formular an deinen Server senden
-    console.log('Original form data:', formData);
-    console.log('Sanitized form data for submission:', sanitizedFormData);
-    
-    // Simuliere API-Aufruf
-    setTimeout(() => {
+      const response = await fetch('https://xn--alexander-hrst-5pb.de/sendMail.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(emailData)
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.text();
+      
+      if (result.includes('success') || result.includes('erfolgreich') || response.status === 200) {
+        this.setState({
+          isSubmitting: false,
+          submitMessage: t('contact.formSuccess'),
+          submitType: 'success',
+          formData: { name: '', email: '', message: '' },
+          errors: { name: '', email: '', message: '' }
+        });
+      } else {
+        throw new Error('Server returned error: ' + result);
+      }
+
+    } catch (error) {
+      console.error('Error sending email:', error);
+
+      let errorMessage = t('contact.formErrorGeneric');
+
+      if (error.name === 'TypeError' && error.message.includes('fetch')) {
+        errorMessage += t('contact.formErrorGeneric');
+      } else if (error.message.includes('404')) {
+        errorMessage += t('contact.formErrorGeneric');
+      } else if (error.message.includes('500')) {
+        errorMessage += t('contact.formErrorGeneric');
+      } else {
+        errorMessage += t('contact.formErrorGeneric');
+      }
+
       this.setState({
         isSubmitting: false,
-        submitMessage: 'Nachricht erfolgreich gesendet! Ich melde mich bald bei Ihnen.',
-        formData: { name: '', email: '', message: '' },
-        errors: { name: '', email: '', message: '' }
+        submitMessage: errorMessage,
+        submitType: 'error'
       });
-    }, 2000);
+    }
   };
 
 
@@ -315,7 +335,7 @@ export class Contact extends Component {
                 >
                   <Send size={20} />
                   <span>
-                    {isSubmitting ? 'Wird gesendet...' : 'Nachricht senden'}
+                    {isSubmitting ? t('contact.form.sendwait') : t('contact.form.send')}
                   </span>
               </button>
             </form>

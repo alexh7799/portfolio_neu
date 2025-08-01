@@ -23,7 +23,7 @@ export class Skills extends Component {
     {
       title: 'DevOps',
       icon: <Zap className="w-8 h-8" />,
-      skills: ['Docker', 'AWS', 'CI/CD', 'Kubernetes', 'Terraform'],
+      skills: ['Docker', 'Cloud', 'CI/CD'],
       color: 'from-orange-500 to-red-500'
     },
     {
