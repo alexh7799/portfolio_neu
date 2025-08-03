@@ -49,7 +49,7 @@ export class Hero extends React.Component {
                             </button>
                         </div>
 
-                        <div className="flex justify-center lg:justify-end scale-80 sm:scale-80 md:scale-80 lg:scale-110 pr-0 sm:pr-0 md:pr-0 lg:pr-0">
+                        <div className="flex justify-center lg:justify-end scale-80 sm:scale-80 md:scale-80 lg:scale-110 pr-0 sm:pr-6 md:pr-6 lg:pr-2 xl:pr-0">
                             <div className="relative">
                                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-lg opacity-30 animate-pulse"></div>
                                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur opacity-50"></div>

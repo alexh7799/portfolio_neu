@@ -13,7 +13,7 @@ const ThreeBackground = () => {
   return (
     <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
       <Canvas
-        camera={{ position: [0, 2, 8], fov: 65 }}
+        camera={{ position: [0, 2, 12], fov: 65 }}
         style={{ background: "transparent" }}
         dpr={Math.min(window.devicePixelRatio, 2)}
         performance={{ min: 0.5 }}
@@ -49,9 +49,9 @@ const ThreeBackground = () => {
         />
 
         <Sparkles
-          count={600}
-          scale={[35, 35, 35]}
-          size={3.5}
+          count={200}
+          scale={[30, 30, 6]}
+          size={4.5}
           speed={0.6}
           color="#00d4ff"
         />

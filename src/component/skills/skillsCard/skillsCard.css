@@ -2,6 +2,7 @@
   perspective: 1000px;
   transition: transform 0.1s ease-out;
   transform-style: preserve-3d;
+  
 }
 
 .skill-card-inner {
