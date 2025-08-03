@@ -5,6 +5,11 @@ import { ArrowDown } from 'lucide-react';
 import ThreeBackground from './TreeBackground';
 
 export class Hero extends React.Component {
+    /**
+     * Class constructor.
+     * 
+     * @param {Object} props Properties passed from the parent component.
+     */
     constructor(props) {
         super(props);
         this.state = {};

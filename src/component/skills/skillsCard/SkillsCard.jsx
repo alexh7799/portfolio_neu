@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import './skillsCard.css'
 
 export class SkillCard extends Component {
+    /**
+     * Initializes a new instance of the SkillCard component.
+     * Sets up a ref for the card element to handle 3D transformations.
+     * 
+     * @param {Object} props - The properties passed to the component.
+     */
+
     constructor(props) {
         super(props);
         this.cardRef = React.createRef();
@@ -38,6 +45,18 @@ export class SkillCard extends Component {
             cardInner.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
         }
     };
+
+    /**
+     * Renders the SkillCard component.
+     * 
+     * This component displays a 3D interactive card that includes a category icon,
+     * a title, and a list of skills. The card responds to mouse movements to create
+     * a 3D transformation effect, and it handles mouse events to reset the transformation
+     * when the mouse leaves the card area.
+     *
+     * @returns {JSX.Element} A div element that represents the skill card structure,
+     *                        which includes the category icon, title, and skills list.
+     */
 
     render() {
         const { category } = this.props;

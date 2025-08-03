@@ -1,7 +1,13 @@
-import { ExternalLink, Github } from 'lucide-react';
-import React, { Component } from 'react'
+import { ExternalLink, Github } from "lucide-react";
+import React, { Component } from "react";
 
 export class ProjectCard extends Component {
+    /**
+     * Renders a project card with a title, description, technologies, and links to
+     * the live demo and GitHub code.
+     *
+     * @returns {JSX.Element}
+     */
     render() {
         const { project } = this.props;
         return (
@@ -17,7 +23,6 @@ export class ProjectCard extends Component {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-
                 <div className="p-4 sm:p-6 md:p-8">
                     <h3 className="text-xl font-semibold text-white mb-3">
                         {project.title}
@@ -37,7 +42,6 @@ export class ProjectCard extends Component {
                             </span>
                         ))}
                     </div>
-
                     <div className="flex space-x-4">
                         <a
                             href={project.liveUrl}
@@ -60,8 +64,8 @@ export class ProjectCard extends Component {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
-export default ProjectCard
+export default ProjectCard;

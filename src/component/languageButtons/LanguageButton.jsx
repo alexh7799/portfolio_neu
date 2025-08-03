@@ -15,6 +15,16 @@ export class LanguageButton extends Component {
         this.changeLanguage(newLang);
     };
 
+    /**
+     * Renders the LanguageButton component.
+     *
+     * @returns {JSX.Element}
+     *
+     * @description
+     * This component renders a button with the current language code (DE or EN) and a
+     * handler to toggle the language. The button is styled with Tailwind CSS and has a
+     * hover effect.
+     */
     render() {
         const { t, i18n } = this.props;
         return (

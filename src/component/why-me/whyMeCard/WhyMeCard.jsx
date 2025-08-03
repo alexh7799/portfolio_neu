@@ -2,8 +2,15 @@ import React, { Component } from 'react'
 import './whymeCard.css'
 
 export class WhyMeCard extends Component {
+    /**
+     * Renders a card component displaying the provided reason with an icon,
+     * title, and description. The card has a responsive design with hover
+     * effects, including a gradient background and scaling effect.
+     */
+
     render() {
         const { reason } = this.props;
+
         return (
             <div
                 key={reason.title}
@@ -15,7 +22,6 @@ export class WhyMeCard extends Component {
                             {reason.icon}
                         </div>
                     </div>
-
                     <div className="flex-1">
                         <h3 className="text-xl font-semibold text-white mb-2">
                             {reason.title}
@@ -23,9 +29,6 @@ export class WhyMeCard extends Component {
                         <p className="text-gray-400 mb-3 leading-relaxed">
                             {reason.description}
                         </p>
-                        {/* <div className="text-blue-400 font-semibold">
-                            {reason.stats}
-                        </div> */}
                     </div>
                 </div>
             </div>

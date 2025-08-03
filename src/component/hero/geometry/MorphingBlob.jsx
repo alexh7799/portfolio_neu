@@ -2,6 +2,13 @@ import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial } from '@react-three/drei';
 
+/**
+ * MorphingBlob is a component that renders a morphing icosahedron shape.
+ * It will float up and down, and will change its color over time.
+ * The user can specify the starting position, color, and speed of the morphing.
+ * @param {{position: [number, number, number], color: string, speed: number}} props
+ * @returns {JSX.Element}
+ */
 const MorphingBlob = ({ position, color, speed }) => {
   const meshRef = useRef();
   useFrame((state) => {

@@ -6,6 +6,16 @@ import '../../i18n/i18n';
 import WhyMeCard from './whyMeCard/WhyMeCard';
 
 export class WhyMe extends Component {
+  /**
+   * Renders the WhyMe component.
+   *
+   * @returns {JSX.Element}
+   *
+   * @description
+   * This component renders the WhyMe section of the site. It contains a
+   * title, description, a grid of WhyMeCards, and a call-to-action to get in
+   * touch. The WhyMe section is translated using the i18next library.
+   */
   render() {
     const { t, i18n } = this.props;
     const reasons = [
@@ -49,7 +59,6 @@ export class WhyMe extends Component {
               />
             ))}
           </div>
-
           <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl p-4 sm:p-6 md:p-8 text-center border border-blue-500/20">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
               {t('why_me.ready_to_work')}

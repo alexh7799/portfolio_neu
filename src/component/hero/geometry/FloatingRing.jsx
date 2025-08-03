@@ -2,6 +2,14 @@ import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial } from '@react-three/drei';
 
+/**
+ * A rotating ring that bobs up and down.
+ *
+ * @param {{ x: number, y: number, z: number }} position The position of the ring.
+ * @param {string} color The color of the ring.
+ * @param {number} size The size of the ring.
+ * @param {number} speed The speed the ring moves.
+ */
 const FloatingRing = ({ position, color, size, speed }) => {
   const meshRef = useRef();
 

@@ -5,6 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import '../../i18n/i18n';
 
 export class Navbar extends Component {
+/**
+ * Initializes the Navbar component's state.
+ * 
+ * @param {Object} props - Properties passed from the parent component.
+ * @property {boolean} state.isOpen - Indicates whether the navigation menu is open.
+ */
+
     constructor(props) {
         super(props);
         this.state = {

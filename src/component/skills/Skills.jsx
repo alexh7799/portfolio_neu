@@ -2,9 +2,19 @@ import React, { Component } from 'react'
 import { Code, Database, Globe, Smartphone, Server, Zap } from 'lucide-react';
 import { withTranslation } from 'react-i18next';
 import '../../i18n/i18n';
-import SkillsCard from './skillsCard/skillsCard';
+import SkillsCard from './skillsCard/SkillsCard';
 
 export class Skills extends Component {
+  /**
+   * Renders the Skills component.
+   *
+   * @returns {JSX.Element}
+   *
+   * @description
+   * This component renders the Skills section of the site. It contains a title, description, a
+   * grid of SkillsCards, and call-to-actions to get in touch. The Skills section is translated
+   * using the i18next library.
+   */
   render() {
     const { t, i18n } = this.props;
     const skillCategories = [

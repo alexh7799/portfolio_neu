@@ -2,6 +2,15 @@ import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial } from '@react-three/drei';
 
+/**
+ * A 3D particle that moves vertically and rotates in a circular motion.
+ * 
+ * @param {array} position The initial position of the particle.
+ * @param {object} geometry The three.js geometry object to use for the particle.
+ * @param {string} color The color of the particle.
+ * @param {number} speed The speed at which the particle moves.
+ * @returns A React component that renders the particle.
+ */
 const GeometricParticle = ({ position, geometry, color, speed }) => {
   const meshRef = useRef();
 
