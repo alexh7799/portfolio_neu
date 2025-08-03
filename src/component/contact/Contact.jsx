@@ -145,9 +145,6 @@ export class Contact extends Component {
     const { t } = this.props;
     e.preventDefault();
     if (this.state.isSubmitting) return;
-
-    
-
     if (!this.validateForm()) {
       this.setState({
         isSubmitting: false,
@@ -156,12 +153,10 @@ export class Contact extends Component {
       });
       return;
     }
-
     const { formData } = this.state;
     const allFieldsValid = Object.values(formData).every(value =>
       !this.containsSuspiciousCode(value)
     );
-
     if (!allFieldsValid) {
       this.setState({
         isSubmitting: false,
@@ -181,8 +176,7 @@ export class Contact extends Component {
         userAgent: navigator.userAgent,
         referer: window.location.href
       };
-      
-
+    
       const response = await fetch('https://xn--alexander-hrst-5pb.de/sendMail.php', {
         method: 'POST',
         headers: {
