@@ -112,8 +112,7 @@ export class PrivacyPolicy extends Component {
                                             If you have any questions about this Privacy Policy, please contact us at:
                                         </p>
                                         <div className="bg-gray-700 p-4 rounded-lg mt-4">
-                                            <p><strong>Email:</strong> contact@johndeveloper.com</p>
-                                            <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                                            <p><strong>Email:</strong> hoerst.alexander@gmail.de</p>
                                         </div>
                                     </section>
 

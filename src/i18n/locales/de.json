@@ -21,18 +21,27 @@
     "get_in_touch": "Jetzt Kontakt aufnehmen und loslegen!",
     "skill_one": {
       "title": "Standort in Hörstel",
-      "description": "Ich arbeite aus Hörstel im Münsterland – ruhig gelegen, ideal für fokussiertes Arbeiten und dennoch bestens vernetzt für Projekte im gesamten DACH-Raum.",
-      "stats": "50+ zufriedene Kunden"
+      "description": "Ich arbeite aus Hörstel im Münsterland – ruhig gelegen, ideal für fokussiertes Arbeiten und dennoch bestens vernetzt für Projekte im gesamten DACH-Raum."
     },
     "skill_two": {
-      "title": "offen für Remote-Arbeit",
-      "description": "Effizient, fokussiert und ortsunabhängig: Ich bin auf Remote-Projekte spezialisiert und bringe umfassende Erfahrung in der digitalen Zusammenarbeit mit verteilten Teams mit.",
-      "stats": "5+ Jahre Erfahrung"
+      "title": "Team Player",
+      "description": "Effizient, fokussiert und ortsunabhängig: Ich bin auf Remote-Projekte spezialisiert und bringe umfassende Erfahrung in der digitalen Zusammenarbeit mit verteilten Teams mit."
     },
     "skill_three": {
-      "title": "offen für Umzug",
-      "description": "Ein Ortswechsel eröffnet neue Perspektiven, fördert kreative Ideen und stärkt meine Flexibilität in Projekten. Ich bin offen für einen Umzug, wenn das Projekt und das Team passen.",
-      "stats": "98% pünktliche Lieferung"
+      "title": "Kreatives Denken",
+      "description": "Ein Ortswechsel eröffnet neue Perspektiven, fördert kreative Ideen und stärkt meine Flexibilität in Projekten. Ich bin offen für einen Umzug, wenn das Projekt und das Team passen."
+    },
+    "skill_four": {
+      "title": "Selbstorganisation",
+      "description": "Ein Ortswechsel eröffnet neue Perspektiven, fördert kreative Ideen und stärkt meine Flexibilität in Projekten. Ich bin offen für einen Umzug, wenn das Projekt und das Team passen."
+    },
+    "skill_five": {
+      "title": "Analytisches Denken",
+      "description": "Ein Ortswechsel eröffnet neue Perspektiven, fördert kreative Ideen und stärkt meine Flexibilität in Projekten. Ich bin offen für einen Umzug, wenn das Projekt und das Team passen."
+    },
+    "skill_six": {
+      "title": "Stressresistenz",
+      "description": "Ein Ortswechsel eröffnet neue Perspektiven, fördert kreative Ideen und stärkt meine Flexibilität in Projekten. Ich bin offen für einen Umzug, wenn das Projekt und das Team passen."
     }
   },
   "skills": {
@@ -120,7 +129,7 @@
       "location": "Standort"
     },
     "responseTimeTitle": "Antwortzeit",
-    "responseTimeDescription": "Ich antworte in der Regel innerhalb von 24 Stunden auf alle Anfragen. Bei dringenden Projekten kannst du mich gerne direkt anrufen."
+    "responseTimeDescription": "Ich antworte in der Regel innerhalb von 24 Stunden auf alle Anfragen."
   },
   "footer": {
     "availability": "Verfügbar für freiberufliche Projekte und Vollzeitmöglichkeiten. Lassen Sie uns über Ihr Vorhaben sprechen – ich freue mich auf Ihre Anfrage!",

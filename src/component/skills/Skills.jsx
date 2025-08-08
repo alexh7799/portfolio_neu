@@ -27,7 +27,7 @@ export class Skills extends Component {
     {
       title: 'Backend',
       icon: <Server className="w-8 h-8" />,
-      skills: ['Node.js', 'Python', 'Django', 'SQLite', 'Redis'],
+      skills: ['Node.js', 'Python', 'Django', 'Redis'],
       color: 'from-green-500 to-emerald-500'
     },
     {
@@ -45,13 +45,13 @@ export class Skills extends Component {
     {
       title: 'Database',
       icon: <Database className="w-8 h-8" />,
-      skills: ['SQLite', 'MySQL', 'Firebase'],
+      skills: ['SQLite', 'MySQL', 'Firebase', 'PostgreSQL'],
       color: 'from-indigo-500 to-blue-500'
     },
     {
       title: 'Tools',
       icon: <Code className="w-8 h-8" />,
-      skills: ['Git', 'VSCode', 'Figma', 'Postman'],
+      skills: ['Git', 'VSCode', 'Figma', 'Postman', 'GitHub'],
       color: 'from-yellow-500 to-orange-500'
     }
   ];

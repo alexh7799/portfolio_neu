@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Mail, Phone, MapPin, Send, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, AlertCircle, Linkedin, Github } from 'lucide-react';
 import { withTranslation } from 'react-i18next';
 import '../../i18n/i18n';
 
@@ -382,7 +382,7 @@ export class Contact extends Component {
 
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
-                    <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg">
+                    <div className="p-3 bg-gradient-to-r from-pink-500 to-rose-600 rounded-lg">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -393,11 +393,21 @@ export class Contact extends Component {
 
                   <div className="flex items-center space-x-4">
                     <div className="p-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg">
-                      <Phone className="w-6 h-6 text-white" />
+                      <Github className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="text-gray-400">{t('contact.getInTouch.phone')}</p>
-                      <p className="text-sm sm:text-md text-white font-semibold">+49 1575 2102518</p>
+                      <p className="text-gray-400">Github</p>
+                      <p className="text-sm sm:text-md text-white font-semibold">github.com/alexh7799/</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg">
+                      <Linkedin className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-gray-400">Linkedin</p>
+                      <p className="text-sm sm:text-md text-white font-semibold">linkedin.com/in/alexander-hoerst/</p>
                     </div>
                   </div>
 

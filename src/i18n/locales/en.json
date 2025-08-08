@@ -30,6 +30,18 @@
     "skill_three": {
       "title": "Open to Relocation",
       "description": "Relocating brings fresh perspectives, sparks creativity, and strengthens my adaptability in projects. I'm open to moving if the opportunity and team are a good fit."
+    },
+    "skill_four": {
+      "title": "Self-Organization",
+      "description": "I excel in managing my time and tasks effectively, ensuring that projects run smoothly and deadlines are met without compromising quality."
+    },
+    "skill_five": {
+      "title": "Analytical Thinking",
+      "description": "I approach problems methodically, breaking them down into manageable parts and using data-driven insights to inform my decisions."
+    },
+    "skill_six": {
+      "title": "Stress Resistance",
+      "description": "I thrive in high-pressure environments, maintaining focus and productivity even when faced with tight deadlines and challenging situations."
     }
   },
   "skills": {
@@ -117,7 +129,7 @@
       "location": "Location"
     },
     "responseTimeTitle": "Response Time",
-    "responseTimeDescription": "I typically respond to all inquiries within 24 hours. For urgent projects, feel free to call me directly."
+    "responseTimeDescription": "I typically respond to all inquiries within 24 hours."
   },
   "footer": {
     "availability": "Available for freelance projects and full-time opportunities. Let’s talk about your ideas – I’d love to hear from you!",

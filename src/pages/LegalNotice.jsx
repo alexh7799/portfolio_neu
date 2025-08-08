@@ -29,10 +29,9 @@ export class LegalNotice extends Component {
                                     <section>
                                         <h2 className="text-2xl font-semibold text-white mb-4">Website Information</h2>
                                         <div className="bg-gray-700 p-4 rounded-lg">
-                                            <p><strong>Website Owner:</strong> John Developer</p>
-                                            <p><strong>Email:</strong> contact@johndeveloper.com</p>
-                                            <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-                                            <p><strong>Address:</strong> San Francisco, CA, United States</p>
+                                            <p><strong>Website Owner:</strong> Alexander Hörst</p>
+                                            <p><strong>Email:</strong> hoerst.alexander@gmail.de</p>
+                                            <p><strong>Address:</strong> Ostenwalder str. 6, 48477 Hörstel, Deutschland</p>
                                         </div>
                                     </section>
 

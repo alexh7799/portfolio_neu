@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Wifi, BaggageClaim, MapPinned } from 'lucide-react';
+import { Lightbulb, MapPinned, PencilRuler, BrainCircuit, Users, HeartPulse} from 'lucide-react';
 
 import { withTranslation } from 'react-i18next';
 import '../../i18n/i18n';
@@ -26,16 +26,34 @@ export class WhyMe extends Component {
         stats: t('why_me.skill_one.stats')
       },
       {
-        icon: <Wifi className="w-8 h-8" />,
+        icon: <Users className="w-8 h-8" />,
         title: t('why_me.skill_two.title'),
         description: t('why_me.skill_two.description'),
         stats: t('why_me.skill_two.stats')
       },
       {
-        icon: <BaggageClaim className="w-8 h-8" />,
+        icon: <Lightbulb className="w-8 h-8" />,
         title: t('why_me.skill_three.title'),
         description: t('why_me.skill_three.description'),
         stats: t('why_me.skill_three.stats')
+      },
+      {
+        icon: <PencilRuler className="w-8 h-8" />,
+        title: t('why_me.skill_four.title'),
+        description: t('why_me.skill_four.description'),
+        stats: t('why_me.skill_four.stats')
+      },
+      {
+        icon: <BrainCircuit className="w-8 h-8" />,
+        title: t('why_me.skill_five.title'),
+        description: t('why_me.skill_five.description'),
+        stats: t('why_me.skill_five.stats')
+      },
+      {
+        icon: <HeartPulse className="w-8 h-8" />,
+        title: t('why_me.skill_six.title'),
+        description: t('why_me.skill_six.description'),
+        stats: t('why_me.skill_six.stats')
       }
     ];
 
