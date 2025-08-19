@@ -381,17 +381,17 @@ export class Contact extends Component {
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">{t('contact.getInTouch.title')}</h3>
 
                 <div className="space-y-6">
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-2 sm:space-x-4">
                     <div className="p-3 bg-gradient-to-r from-pink-500 to-rose-600 rounded-lg">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div>
                       <p className="text-gray-400">Email</p>
-                      <p className="text-sm sm:text-md text-white font-semibold">hoerst.alexander@gmail.com</p>
+                      <p className="text-sm sm:text-md text-white font-semibold hyphens-auto">hoerst.alexander@gmail.com</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-2 sm:space-x-4">
                     <div className="p-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg">
                       <Github className="w-6 h-6 text-white" />
                     </div>
@@ -401,7 +401,7 @@ export class Contact extends Component {
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-2 sm:space-x-4">
                     <div className="p-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg">
                       <Linkedin className="w-6 h-6 text-white" />
                     </div>
@@ -411,7 +411,7 @@ export class Contact extends Component {
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-2 sm:space-x-4">
                     <div className="p-3 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg">
                       <MapPin className="w-6 h-6 text-white" />
                     </div>

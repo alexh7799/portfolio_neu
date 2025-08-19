@@ -36,7 +36,7 @@ export class LegalNoticeContent extends Component {
                             </p>
                         </section>
                         <section>
-                            <h2 className="text-2xl font-semibold text-white mb-4">{t("legal-notice.copyright")}</h2>
+                            <h2 className="text-2xl font-semibold text-white mb-4 hyphens-auto">{t("legal-notice.copyright")}</h2>
                             <p>
                                 {t("legal-notice.copyrightDescription")}
                             </p>

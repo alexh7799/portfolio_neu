@@ -17,7 +17,7 @@ export class LegalNotice extends Component {
                 </div>
                 <div className="pt-20 pb-16">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                        <div className="bg-gray-800 rounded-xl p-4 sm:p-6 md:p-8 border border-gray-700">
                             <LegalNoticeContent />
                         </div>
                     </div>

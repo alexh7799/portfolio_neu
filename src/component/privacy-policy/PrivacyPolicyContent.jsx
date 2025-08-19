@@ -16,8 +16,8 @@ export class PrivacyPolicyContent extends Component {
         const { t, i18n } = this.props;
 
         return (
-            <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
-                <h1 className="text-4xl font-bold text-white mb-8">{t('policy.title')}</h1>
+            <div className="bg-gray-800 rounded-xl p-4 sm:p-6 md:p-8 border border-gray-700">
+                <h1 className="text-4xl font-bold text-white mb-8 hyphens-auto">{t('policy.title')}</h1>
                 <div className="prose prose-invert max-w-none">
                     <div className="text-gray-300 space-y-6 leading-relaxed">
                         <p className="text-gray-400 text-sm">Last updated: 18.08.2025</p>
