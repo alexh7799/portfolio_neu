@@ -5,7 +5,7 @@ import LegalNotice from "./pages/LegalNotice";
 import NotFound from "./pages/NotFound";
 import './App.css'
 import ScrollToTop from "./share/ScrollToTop";
-
+import './i18n/i18n';
 
 function App() {
   return (

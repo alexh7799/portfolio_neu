@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Navbar from '../component/navbar/navbar'
 import SocialMedia from '../component/social-media/SocialMedia'
 import Footer from '../component/footer/Footer'
+import PrivacyPolicyContent from '../component/privacy-policy/PrivacyPolicyContent'
 
 export class PrivacyPolicy extends Component {
     render() {
@@ -14,7 +15,8 @@ export class PrivacyPolicy extends Component {
 
                 <div className="pt-20 pb-16">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                        <PrivacyPolicyContent />
+                        {/* <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
                             <h1 className="text-4xl font-bold text-white mb-8">Privacy Policy</h1>
 
                             <div className="prose prose-invert max-w-none">
@@ -43,7 +45,7 @@ export class PrivacyPolicy extends Component {
                                             <li>Any other information you voluntarily provide</li>
                                         </ul>
 
-                                        <h3 className="text-xl font-medium text-white mb-2 mt-4">Automatically Collected Information</h3>
+                                        <h3 className='text-xl font-medium text-white mb-2 mt-4'>Automatically Collected Information</h3>
                                         <p>We may automatically collect certain information about your visit:</p>
                                         <ul className="list-disc pl-6 space-y-1">
                                             <li>IP address and device information</li>
@@ -117,7 +119,7 @@ export class PrivacyPolicy extends Component {
                                     </section>
 
                                     <section>
-                                        <h2 className="text-2xl font-semibold text-white mb-4">Changes to This Policy</h2>
+                                        <h2 className='text-2xl font-semibold text-white mb-4'>Changes to This Policy</h2>
                                         <p>
                                             We may update this Privacy Policy from time to time. We will notify you of
                                             any changes by posting the new Privacy Policy on this page and updating
@@ -126,7 +128,9 @@ export class PrivacyPolicy extends Component {
                                     </section>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
+
+
                     </div>
                 </div>
 
