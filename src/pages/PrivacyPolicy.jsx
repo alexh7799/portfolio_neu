@@ -7,7 +7,7 @@ import PrivacyPolicyContent from '../component/privacy-policy/PrivacyPolicyConte
 export class PrivacyPolicy extends Component {
     render() {
         return (
-            <div className="min-h-screen bg-gray-900">
+            <div className="min-h-screen bg-gray-900 mt-8">
                 <Navbar />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full fixed top-16 left-0 right-0 z-40">
                     <SocialMedia />

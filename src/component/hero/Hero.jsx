@@ -42,7 +42,7 @@ export class Hero extends React.Component {
                             </p>
                             <button
                                 onClick={this.scrollToNextSection}
-                                className='w-full px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white hover:scale-102'>
+                                className='block px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white hover:scale-102'>
                                 {t('hero.button')}
                                 <ArrowDown size={22} className="inline ml-2 mb-1 group-hover:translate-y-1 transition-transform" />
                             </button>

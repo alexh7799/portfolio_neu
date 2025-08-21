@@ -44,7 +44,7 @@ export class LegalNoticeContent extends Component {
                         <section>
                             <p>
                                 {t("legal-notice.cta")}
-                                <a href='https://www.dieter-datenschutz.de/' className='text-white hover:text-gray-400'>Dieter macht den Datenschutz</a>
+                                <a href='https://www.dieter-datenschutz.de/' target='_blank' className='text-white hover:text-gray-400'>Dieter macht den Datenschutz</a>
                             </p>
                         </section>
                     </div>
