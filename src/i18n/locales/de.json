@@ -83,16 +83,18 @@
         "githubUrl": "https://github.com/alexh7799/pokedex"
       },
       {
-        "title": "Dark Magic",
-        "description": "Ein Jump-and-Run-Spiel, das mit JavaScript und HTML5 Canvas entwickelt wurde. Es bietet eine einfache Steuerung und ein ansprechendes Gameplay. In diesem Projekt habe ich die Grundlagen der objektorientierten Programmierung (OOP) mit Klassen und Vererbung kennengelernt. Die Implementierung von Spielelogik und Character-Bewegungen hat mir ein tiefes Verständnis für die Strukturierung von Code mit OOP vermittelt.",
-        "image": "/img/dark-magic.svg",
+        "title": "Videoflix",
+        "description": "Videoflix ist eine Video-Plattform nach dem Vorbild von Netflix. Bei diesem Projekt habe ich mich intensiv mit Backend-Technologien beschäftigt und das System mit Python und Django entwickelt. Die Speicherung und Verwaltung der Videodaten erfolgt über PostgreSQL, während Redis für das verarbeitung von Email und Konvertierung der Filme eingesetzt wird. Das Projekt zeigt meine Fähigkeiten in der Entwicklung moderner Web-Backends und meinen Umgang mit fortgeschrittenen Technologien.",
+        "image": "/img/videoflix.svg",
         "technologies": [
-          "HTML",
-          "CSS",
-          "JavaScript"
+          "Django",
+          "Python",
+          "PostgreSQL",
+          "Rest API",
+          "Redis"
         ],
-        "liveUrl": "https://dark-magic.Alexander-Hörst.de/",
-        "githubUrl": "https://github.com/alexh7799/Dark-Magic"
+        "liveUrl": "https://videoflix.Alexander-Hörst.de/",
+        "githubUrl": "https://github.com/alexh7799/videoflex"
       }
     ],
     "ready_to_work": "Interesse geweckt? Lassen Sie uns gemeinsam durchstarten!",

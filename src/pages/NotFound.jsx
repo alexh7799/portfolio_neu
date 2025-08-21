@@ -14,7 +14,7 @@ export class NotFound extends Component {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full fixed top-16 left-0 right-0 z-40">
                     <SocialMedia />
                 </div>
-                <div className="h-screen flex items-center justify-center bg-gray-100">
+                <main className="h-screen flex items-center justify-center bg-gray-100">
                     <div className="text-center flex flex-col justify-center items-center p-8">
                         <img src="logo.svg" alt="Logo" className='w-32 h-32'/>
                         <h1 className="text-4xl font-bold mb-4">404</h1>
@@ -24,7 +24,7 @@ export class NotFound extends Component {
                         </a>
                     </div>
 
-                </div>
+                </main>
                 <Footer />
             </div>
         )

@@ -15,13 +15,13 @@ export class LegalNotice extends Component {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full fixed top-16 left-0 right-0 z-40">
                     <SocialMedia />
                 </div>
-                <div className="pt-20 pb-16">
+                <main className="pt-20 pb-16">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="bg-gray-800 rounded-xl p-4 sm:p-6 md:p-8 border border-gray-700">
                             <LegalNoticeContent />
                         </div>
                     </div>
-                </div>
+                </main>
                 <Footer />
             </div >
         )

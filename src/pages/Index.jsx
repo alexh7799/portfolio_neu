@@ -27,12 +27,14 @@ export class Index extends Component {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full fixed top-16 left-0 right-0 z-40 pointer-events-none">
               <SocialMedia />
             </div>
-            <Hero />
-            <WhyMe />
-            <Skills />
-            <Projects />
-            {/* <References /> */}
-            <Contact />
+            <main>
+              <Hero />
+              <WhyMe />
+              <Skills />
+              <Projects />
+              <Contact />
+            </main>
+            
             <Footer />
       </div>
     )
