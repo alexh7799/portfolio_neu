@@ -387,7 +387,7 @@ export class Contact extends Component {
                     </div>
                     <div>
                       <p className="text-gray-400">Email</p>
-                      <p className="text-sm sm:text-md text-white font-semibold hyphens-auto">hoerst.alexander@gmail.com</p>
+                      <p className="text-sm sm:text-md text-white font-semibold hyphens-auto">info@alexander-hörst.de</p>
                     </div>
                   </div>
 

@@ -23,7 +23,7 @@ export class SocialMedia extends Component {
                     <Linkedin size={18} className="text-white" />
                 </a>
                 <a
-                    href="mailto:hoerst.alexander@gmail.com"
+                    href="mailto:info@alexander-hörst.de"
                     className="p-3 bg-gray-800/95 backdrop-blur-sm border border-gray-700 hover:bg-gray-700 rounded-full transition-all duration-300 hover:scale-110 pointer-events-auto"
                 >
                     <Mail size={18} className="text-white" />

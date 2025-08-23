@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Code, Database, Globe, Smartphone, Server, Zap } from 'lucide-react';
+import { Code, Database, Globe, Smartphone, Server, Zap, Monitor } from 'lucide-react';
 import { withTranslation } from 'react-i18next';
 import '../../i18n/i18n';
 import SkillsCard from './skillsCard/SkillsCard';
@@ -33,7 +33,7 @@ export class Skills extends Component {
     {
       title: 'DevOps',
       icon: <Zap className="w-8 h-8" />,
-      skills: ['Docker', 'Cloud', 'CI/CD'],
+      skills: ['Docker', 'Cloud', 'CI/CD', 'Monitoring'],
       color: 'from-orange-500 to-red-500'
     },
     {
