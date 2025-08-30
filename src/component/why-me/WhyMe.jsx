@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import { Lightbulb, MapPinned, PencilRuler, BrainCircuit, Users, HeartPulse} from 'lucide-react';
 
 import { withTranslation } from 'react-i18next';

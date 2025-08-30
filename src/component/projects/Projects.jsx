@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { Component } from "react";
 import { withTranslation } from "react-i18next";
 import "../../i18n/i18n";
 import ProjectCard from "./projectCard/ProjectCard";

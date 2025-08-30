@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import { withTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { withRouter } from '../../share/WithRouter';
 import '../../i18n/i18n';
 
 export class Navbar extends Component {
@@ -19,6 +20,29 @@ export class Navbar extends Component {
     }
 
     /**
+     * Handles scrolling to a section that was stored in the session storage.
+     *
+     * @description
+     * When the component mounts, it checks if there is a scrollToSection key
+     * in the session storage. If there is, it scrolls to the section with the
+     * given ID after a 500ms delay, and then removes the key from the storage.
+     * This is used to scroll to a section when the page is loaded, for example
+     * when the user clicks on a link that points to a section on the same page.
+     */
+    componentDidMount() {
+        const scrollToSection = sessionStorage.getItem('scrollToSection');
+        if (scrollToSection) {
+            setTimeout(() => {
+                const element = document.getElementById(scrollToSection);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+                sessionStorage.removeItem('scrollToSection');
+            }, 500);
+        }
+    }
+
+    /**
      * Changes the language of the application.
      *
      * @param {string} lng - The language code to switch to.
@@ -28,20 +52,36 @@ export class Navbar extends Component {
     };
 
     /**
+     * Handles scrolling to the home section.
+     *
+     * @param {boolean} isHomePage - Indicates if the current page is the home page.
+     */
+    handleHome = (isHomePage, href) => {
+        const { navigate } = this.props;
+        if (isHomePage) {
+            const element = document.querySelector(href);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            const section = href.substring(1);
+            navigate('/');
+            sessionStorage.setItem('scrollToSection', section);
+        }
+    };
+
+    /**
      * Handles navigation link clicks.
      *
      * @param {string} href - The href of the clicked link.
      */
     handleNavClick = (href) => {
-        const isHomePage = window.location.pathname === '/';
-
+        const { navigate, location } = this.props;
+        const isHomePage = location.pathname === '/';
         if (href.startsWith('#')) {
-            if (isHomePage) {
-                const element = document.querySelector(href);
-                element?.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                window.location.href = `/${href}`;
-            }
+            this.handleHome(isHomePage, href);
+        } else {
+            navigate(href);
         }
         this.setState({ isOpen: false });
     };
@@ -132,7 +172,7 @@ export class Navbar extends Component {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
             >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-700">
                     <div className="flex items-center justify-between h-16">
                         <motion.div
                             onClick={() => this.handleNavClick('#home')}
@@ -164,6 +204,8 @@ export class Navbar extends Component {
                         <div className="md:hidden">
                             <motion.button
                                 onClick={this.toggleMenu}
+                                aria-label='Menu'
+                                aria-expanded={isOpen}
                                 className="text-gray-400 hover:text-white focus:outline-none focus:text-white p-2"
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
@@ -217,4 +259,4 @@ export class Navbar extends Component {
     }
 }
 
-export default withTranslation()(Navbar);
+export default withRouter(withTranslation()(Navbar));

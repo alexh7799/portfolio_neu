@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import "./whymeCard.css";
 
 export class WhyMeCard extends Component {

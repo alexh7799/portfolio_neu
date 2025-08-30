@@ -1,31 +1,78 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import { Heart } from 'lucide-react';
 import { withTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { withRouter } from '../../share/WithRouter';
 import '../../i18n/i18n';
-import { Link, useLocation } from 'react-router-dom';
 
 export class Footer extends Component {
 
   /**
-   * Handles navigation and scrolling to a specific section.
+   * Initializes the state of the Footer component.
    *
-   * @param {string} sectionId - The ID of the section to navigate to.
+   * @param {Object} props - Properties passed from the parent component.
    */
-  handleNavigateAndScroll = (sectionId) => {
-    if (window.location.pathname === '/') {
-      if (sectionId === 'legal-notice' || sectionId === 'privacy-policy') {
-        window.location.href = `/${sectionId}`;
-      } else {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      if (sectionId === 'legal-notice' || sectionId === 'privacy-policy') {
-        window.location.href = `/${sectionId}`;
-      } else {
-        window.location.href = `/#${sectionId}`;
-      }
+  constructor(props) {
+    super(props);
+  }
+  
+  /**
+   * Handles scrolling to a section that was stored in the session storage.
+   *
+   * @description
+   * When the component mounts, it checks if there is a scrollToSection key
+   * in the session storage. If there is, it scrolls to the section with the
+   * given ID after a 500ms delay, and then removes the key from the storage.
+   * This is used to scroll to a section when the page is loaded, for example
+   * when the user clicks on a link that points to a section on the same page.
+   */
+  componentDidMount() {
+    const scrollToSection = sessionStorage.getItem('scrollToSection');
+    if (scrollToSection) {
+      setTimeout(() => {
+        const element = document.getElementById(scrollToSection);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+        sessionStorage.removeItem('scrollToSection');
+      }, 500);
     }
   }
+
+  /**
+     * Handles scrolling to the home section.
+     *
+     * @param {boolean} isHomePage - Indicates if the current page is the home page.
+     */
+  handleHome = (isHomePage, href) => {
+    const { navigate } = this.props;
+    if (isHomePage) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      const section = href.substring(1);
+      navigate('/');
+      sessionStorage.setItem('scrollToSection', section);
+    }
+  };
+
+  /**
+   * Handles navigation link clicks.
+   *
+   * @param {string} href - The href of the clicked link.
+   */
+  handleNavigateAndScroll = (href) => {
+    const { navigate, location } = this.props;
+    const isHomePage = location.pathname === '/';
+    if (href.startsWith('#')) {
+      this.handleHome(isHomePage, href);
+    } else {
+      navigate(href);
+    }
+    this.setState({ isOpen: false });
+  };
 
   /**
    * Renders the Footer component.
@@ -57,7 +104,7 @@ export class Footer extends Component {
               <ul className="space-y-2">
                 <li>
                   <button
-                    onClick={() => this.handleNavigateAndScroll('why-me')}
+                    onClick={() => this.handleNavigateAndScroll('#why-me')}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     {t('footer.whyMe')}
@@ -65,7 +112,7 @@ export class Footer extends Component {
                 </li>
                 <li>
                   <button
-                    onClick={() => this.handleNavigateAndScroll('skills')}
+                    onClick={() => this.handleNavigateAndScroll('#skills')}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     {t('footer.skills')}
@@ -73,7 +120,7 @@ export class Footer extends Component {
                 </li>
                 <li>
                   <button
-                    onClick={() => this.handleNavigateAndScroll('projects')}
+                    onClick={() => this.handleNavigateAndScroll('#projects')}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     {t('footer.projects')}
@@ -81,7 +128,7 @@ export class Footer extends Component {
                 </li>
                 <li>
                   <button
-                    onClick={() => this.handleNavigateAndScroll('contact')}
+                    onClick={() => this.handleNavigateAndScroll('#contact')}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     {t('footer.contact')}
@@ -126,4 +173,4 @@ export class Footer extends Component {
   }
 }
 
-export default withTranslation()(Footer)
+export default withRouter(withTranslation()(Footer));

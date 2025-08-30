@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import LanguageButton from '../languageButtons/LanguageButton'
 import{ Github, Linkedin, Mail } from 'lucide-react'
 
@@ -20,6 +20,7 @@ export class SocialMedia extends Component {
                     href="https://github.com/alexh7799/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="GitHub Profil"
                     className="p-3 bg-gray-800/95 backdrop-blur-sm border border-gray-700 hover:bg-gray-700 rounded-full transition-all duration-300 hover:scale-110 pointer-events-auto"
                 >
                     <Github size={18} className="text-white" />
@@ -28,11 +29,13 @@ export class SocialMedia extends Component {
                     href="https://linkedin.com/in/alexander-hoerst/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="LinkedIn Profil"
                     className="p-3 bg-gray-800/95 backdrop-blur-sm border border-gray-700 hover:bg-gray-700 rounded-full transition-all duration-300 hover:scale-110 pointer-events-auto"
                 >
                     <Linkedin size={18} className="text-white" />
                 </a>
                 <a
+                    aria-label="Send E-Mail"
                     href="mailto:info@alexander-hörst.de"
                     className="p-3 bg-gray-800/95 backdrop-blur-sm border border-gray-700 hover:bg-gray-700 rounded-full transition-all duration-300 hover:scale-110 pointer-events-auto"
                 >

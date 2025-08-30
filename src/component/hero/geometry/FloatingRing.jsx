@@ -1,6 +1,6 @@
-import React, { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshDistortMaterial } from '@react-three/drei';
+import { useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
+import { Float } from '@react-three/drei';
 
 /**
  * A rotating ring that bobs up and down.

@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, lazy, Suspense } from 'react'
 import Navbar from '../component/navbar/navbar'
 import SocialMedia from '../component/social-media/SocialMedia'
 import Hero from '../component/hero/Hero'
-import WhyMe from '../component/why-me/WhyMe'
-import Skills from '../component/skills/Skills'
-import Projects from '../component/projects/Projects'
-import References from '../component/references/References'
-import Contact from '../component/contact/Contact'
 import Footer from '../component/footer/Footer'
+
+const Projects = lazy(() => import('../component/projects/Projects'));
+const Contact = lazy(() => import('../component/contact/Contact'));
+const WhyMe = lazy(() => import('../component/why-me/WhyMe'));
+const Skills = lazy(() => import('../component/skills/Skills'));
 
 export class Index extends Component {
     /**
@@ -48,10 +48,12 @@ export class Index extends Component {
             </div>
             <main>
               <Hero />
-              <WhyMe />
-              <Skills />
-              <Projects />
-              <Contact />
+              <Suspense fallback={<div className="py-16 bg-gray-900"></div>}>
+                <WhyMe />
+                <Skills />
+                <Projects />
+                <Contact />
+              </Suspense>
             </main>
             
             <Footer />

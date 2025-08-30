@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Mail, Phone, MapPin, Send, AlertCircle, Linkedin, Github } from 'lucide-react';
+import { Component } from 'react'
+import { Mail, MapPin, Send, AlertCircle, Linkedin, Github } from 'lucide-react';
 import { withTranslation } from 'react-i18next';
 import '../../i18n/i18n';
 
@@ -440,8 +440,8 @@ export class Contact extends Component {
                       <span>{errors.message}</span>
                     </p>
                   )}
-                  <p className="mt-1 text-xs text-gray-500">
-                    {formData.message.length}/1000 Zeichen
+                  <p className="mt-1 text-xs text-gray-400">
+                    {formData.message.length}/1000 {t('contact.form.message.counter')}
                   </p>
                 </div>
 

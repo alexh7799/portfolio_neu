@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Code, Database, Globe, Smartphone, Server, Zap, Monitor } from 'lucide-react';
+import { Component } from 'react'
+import { Code, Database, Globe, Smartphone, Server, Zap } from 'lucide-react';
 import { withTranslation } from 'react-i18next';
 import '../../i18n/i18n';
 import SkillsCard from './skillsCard/SkillsCard';

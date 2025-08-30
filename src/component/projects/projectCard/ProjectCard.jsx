@@ -1,5 +1,5 @@
 import { ExternalLink, Github } from "lucide-react";
-import React, { Component } from "react";
+import { Component } from "react";
 
 export class ProjectCard extends Component {
     /**

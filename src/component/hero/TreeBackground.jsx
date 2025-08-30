@@ -1,5 +1,5 @@
-import React, { useRef, useMemo } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import React from "react";
+import { Canvas } from "@react-three/fiber";
 import { Sparkles } from "@react-three/drei";
 
 /**

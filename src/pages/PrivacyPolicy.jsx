@@ -16,14 +16,14 @@ export class PrivacyPolicy extends Component {
      */
     render() {
         return (
-            <div className="min-h-screen bg-gray-900 mt-8">
+            <div className="min-h-screen bg-gray-900">
                 <Navbar />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full fixed top-16 left-0 right-0 z-40">
                     <SocialMedia />
                 </div>
                 <main className="pt-20 pb-16">
-                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <PrivacyPolicyContent />
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+                        <PrivacyPolicyContent/>
                     </div>
                 </main>
                 <Footer />
