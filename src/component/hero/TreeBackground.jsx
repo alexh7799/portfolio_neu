@@ -9,7 +9,6 @@ import { Sparkles } from "@react-three/drei";
  * @returns {React.ReactElement}
  */
 const ThreeBackground = () => {
-
   return (
     <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
       <Canvas
@@ -55,7 +54,7 @@ const ThreeBackground = () => {
           speed={0.6}
           color="#a1efff"
         />
-        <fog attach="fog" args={["#0f0f23", 30, 30]} />
+        <fog attach="fog" args={["#0f0f23", 35, 30]} />
       </Canvas>
     </div>
   );

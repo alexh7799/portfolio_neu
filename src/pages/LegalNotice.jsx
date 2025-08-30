@@ -7,6 +7,15 @@ import { withTranslation } from 'react-i18next'
 import '../i18n/i18n';
 
 export class LegalNotice extends Component {
+    /**
+     * Renders the Legal Notice page.
+     * 
+     * @returns {JSX.Element}
+     * 
+     * @description
+     * This component renders the Legal Notice page, including navigation bar, social media,
+     * content and footer.
+     */
     render() {
         const { t, i18n } = this.props;
         return (

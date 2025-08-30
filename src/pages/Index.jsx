@@ -10,6 +10,15 @@ import Contact from '../component/contact/Contact'
 import Footer from '../component/footer/Footer'
 
 export class Index extends Component {
+    /**
+     * Handles scrolling to the section that matches the hash in the URL,
+     * when the component mounts.
+     *
+     * @description
+     * Scrolling is done with a 100ms delay to avoid immediate scrolling
+     * when the page is loaded, which can be a bit jarring. The section
+     * is scrolled into view with a smooth animation.
+     */
     componentDidMount() {
         const hash = window.location.hash;
         if (hash) {
@@ -20,6 +29,16 @@ export class Index extends Component {
         }
     }
 
+  /**
+   * Renders the Index component.
+   *
+   * @returns {JSX.Element}
+   *
+   * @description
+   * This component renders the Index page of the site. It contains a
+   * navigation menu, a hero section, a Why Me section, a Skills section, a
+   * Projects section, a Contact section, and a footer.
+   */
   render() {
     return (
       <div className="min-h-screen bg-gray-900 text-white">

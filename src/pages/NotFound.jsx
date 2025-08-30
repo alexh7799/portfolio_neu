@@ -6,7 +6,16 @@ import Footer from '../component/footer/Footer';
 import Navbar from '../component/navbar/navbar';
 
 export class NotFound extends Component {
-
+    /**
+     * Renders the NotFound component.
+     *
+     * @returns {JSX.Element}
+     *
+     * @description
+     * This component renders the NotFound page of the site. It contains a
+     * title, description, a logo, and a call-to-action to return to the home
+     * page. The NotFound page is translated using the i18next library.
+     */
     render() {
         return (
             <div className='bg-gray-900 min-h-screen'>

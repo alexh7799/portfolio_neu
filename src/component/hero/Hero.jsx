@@ -15,6 +15,9 @@ export class Hero extends React.Component {
         this.state = {};
     }
 
+    /**
+     * Scrolls to the next section of the page.
+     */
     scrollToNextSection = () => {
         document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
     };
@@ -68,7 +71,6 @@ export class Hero extends React.Component {
             </section>
         );
     };
-
 }
 
 export default withTranslation()(Hero);

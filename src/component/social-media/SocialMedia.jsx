@@ -3,6 +3,16 @@ import LanguageButton from '../languageButtons/LanguageButton'
 import{ Github, Linkedin, Mail } from 'lucide-react'
 
 export class SocialMedia extends Component {
+    /**
+     * Renders the social media links and the language button in a div.
+     * The div is centered horizontally and has a max width of 7xl.
+     * The items are spaced equally using the space-x-3 class.
+     * The links are styled with a gray background, a white text color, a backdrop blur, and a hover effect.
+     * The language button is also rendered with the same styles.
+     * The links are wrapped in an a-tag with a pointer-events-auto class to make them clickable.
+     * The language button is also wrapped in an a-tag with a pointer-events-auto class to make it clickable.
+     * @returns {JSX.Element}
+     */
     render() {
         return (
             <div className="max-w-7xl mx-auto flex items-center justify-end lg:justify-end space-x-3 pointer-events-none">

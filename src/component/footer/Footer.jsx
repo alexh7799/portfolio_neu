@@ -6,6 +6,11 @@ import { Link, useLocation } from 'react-router-dom';
 
 export class Footer extends Component {
 
+  /**
+   * Handles navigation and scrolling to a specific section.
+   *
+   * @param {string} sectionId - The ID of the section to navigate to.
+   */
   handleNavigateAndScroll = (sectionId) => {
     if (window.location.pathname === '/') {
       if (sectionId === 'legal-notice' || sectionId === 'privacy-policy') {

@@ -8,12 +8,16 @@ export class SkillCard extends Component {
      * 
      * @param {Object} props - The properties passed to the component.
      */
-
     constructor(props) {
         super(props);
         this.cardRef = React.createRef();
     }
 
+    /**
+     * Handles mouse movement over the card.
+     *
+     * @param {MouseEvent} e - The mouse event.
+     */
     handleMouseMove = (e) => {
         const card = this.cardRef.current;
         if (!card) return;
@@ -24,6 +28,12 @@ export class SkillCard extends Component {
         }
     };
 
+    /**
+     * 3D transformation based on mouse movement calculation.
+     * @param {*} card 
+     * @param {*} even 
+     * @returns 
+     */
     mouseMove = (card, even) => {
         const rect = card.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
@@ -37,6 +47,9 @@ export class SkillCard extends Component {
         return { rotateX, rotateY };
     }
 
+    /**
+     * Handles mouse leave event on the card.
+     */
     handleMouseLeave = () => {
         const card = this.cardRef.current;
         if (!card) return;
@@ -57,7 +70,6 @@ export class SkillCard extends Component {
      * @returns {JSX.Element} A div element that represents the skill card structure,
      *                        which includes the category icon, title, and skills list.
      */
-
     render() {
         const { category } = this.props;
         return (

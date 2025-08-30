@@ -5,13 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import '../../i18n/i18n';
 
 export class Navbar extends Component {
-/**
- * Initializes the Navbar component's state.
- * 
- * @param {Object} props - Properties passed from the parent component.
- * @property {boolean} state.isOpen - Indicates whether the navigation menu is open.
- */
-
+    /**
+     * Initializes the state of the Navbar component.
+     *
+     * @param {Object} props - Properties passed from the parent component.
+     * @property {boolean} state.isOpen - Indicates whether the navigation menu is open.
+     */
     constructor(props) {
         super(props);
         this.state = {
@@ -19,10 +18,20 @@ export class Navbar extends Component {
         };
     }
 
+    /**
+     * Changes the language of the application.
+     *
+     * @param {string} lng - The language code to switch to.
+     */
     changeLanguage = (lng) => {
         this.props.i18n.changeLanguage(lng);
     };
 
+    /**
+     * Handles navigation link clicks.
+     *
+     * @param {string} href - The href of the clicked link.
+     */
     handleNavClick = (href) => {
         const isHomePage = window.location.pathname === '/';
 
@@ -37,10 +46,23 @@ export class Navbar extends Component {
         this.setState({ isOpen: false });
     };
 
+    /**
+     * Toggles the mobile navigation menu.
+     */
     toggleMenu = () => {
         this.setState({ isOpen: !this.state.isOpen });
     };
 
+    /**
+     * Renders the Navbar component.
+     *
+     * @returns {JSX.Element}
+     *
+     * @description
+     * This component renders a navigation bar with links to different sections of the
+     * website and a language switcher. The navigation bar is responsive and has a
+     * mobile-friendly version.
+     */
     render() {
         const { t, i18n } = this.props;
         const { isOpen } = this.state;

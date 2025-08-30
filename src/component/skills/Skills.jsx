@@ -66,7 +66,6 @@ export class Skills extends Component {
             {t('skills.description')}
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
             <SkillsCard key={index} category={category} />

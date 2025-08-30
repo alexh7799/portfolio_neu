@@ -7,7 +7,6 @@ export class WhyMeCard extends Component {
      * title, and description. The card has a responsive design with hover
      * effects, including a gradient background and scaling effect.
      */
-
     render() {
         const { reason } = this.props;
 
@@ -22,9 +21,6 @@ export class WhyMeCard extends Component {
                     <h3 className="text-xl font-semibold text-white mb-2">
                         {reason.title}
                     </h3>
-                    {/* <p className="text-gray-400 mb-3 leading-relaxed">
-                            {reason.description}
-                        </p> */}
                 </div>
             </div>
         );

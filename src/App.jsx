@@ -7,6 +7,12 @@ import './App.css'
 import ScrollToTop from "./share/ScrollToTop";
 import './i18n/i18n';
 
+/**
+ * The main app component, which wraps all pages in a BrowserRouter and
+ * provides a ScrollToTop component to scroll to the top of the page
+ * whenever the route changes. The Routes component is used to define
+ * the different routes and their corresponding page components.
+ */
 function App() {
   return (
     <BrowserRouter>

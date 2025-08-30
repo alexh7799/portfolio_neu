@@ -14,7 +14,6 @@ export class Contact extends Component {
    * errors for each of these fields, a flag to indicate form submission status, and a message
    * to display upon submission.
    */
-
   constructor(props) {
     super(props);
     this.state = {
@@ -33,11 +32,23 @@ export class Contact extends Component {
     };
   }
 
+  /**
+   * Validates the email format.
+   *
+   * @param {string} email - The email address to validate.
+   * @returns {boolean} True if the email is valid, false otherwise.
+   */
   isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
+  /**
+   * Checks if the text contains suspicious code patterns.
+   *
+   * @param {string} text - The text to check.
+   * @returns {boolean} True if suspicious code is found, false otherwise.
+   */
   containsSuspiciousCode = (text) => {
     const suspiciousPatterns = [
       /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
@@ -62,6 +73,12 @@ export class Contact extends Component {
     return suspiciousPatterns.some(pattern => pattern.test(text));
   };
 
+  /**
+   * Sanitizes user input by escaping HTML special characters.
+   *
+   * @param {string} text - The text to sanitize.
+   * @returns {string} The sanitized text.
+   */
   sanitizeText = (text) => {
     return text
       .replace(/</g, '&lt;')
@@ -71,6 +88,12 @@ export class Contact extends Component {
       .replace(/\//g, '&#x2F;');
   };
 
+  /**
+   * Validates the name field.
+   *
+   * @param {string} value - The value of the name field.
+   * @returns {string} The validation error message, if any.
+   */
   validateNameField = (value) => {
     const { t } = this.props;
     if (!value.trim()) return t('contact.formError.nameRequired');
@@ -81,6 +104,12 @@ export class Contact extends Component {
     return '';
   }
 
+  /**
+   * Validates the email field.
+   *
+   * @param {string} value - The value of the email field.
+   * @returns {string} The validation error message, if any.
+   */
   validateEmailField = (value) => {
     const { t } = this.props;
     if (!value.trim()) return t('contact.formError.emailRequired');
@@ -90,6 +119,12 @@ export class Contact extends Component {
     return '';
   };
 
+  /**
+   * Validates the message field.
+   *
+   * @param {string} value - The value of the message field.
+   * @returns {string} The validation error message, if any.
+   */
   validateMessageField = (value) => {
     const { t } = this.props;
     if (!value.trim()) return t('contact.formError.messageRequired');
@@ -99,6 +134,13 @@ export class Contact extends Component {
     return '';
   };
 
+  /**
+   * Validates a specific form field.
+   *
+   * @param {string} name - The name of the form field.
+   * @param {string} value - The value of the form field.
+   * @returns {string} The validation error message, if any.
+   */
   validateField = (name, value) => {
     let error = '';
     switch (name) {
@@ -117,6 +159,11 @@ export class Contact extends Component {
     return error;
   };
 
+  /**
+   * Validates the entire form.
+   *
+   * @returns {boolean} True if the form is valid, false otherwise.
+   */
   validateForm = () => {
     const { t } = this.props;
     const { formData } = this.state;
@@ -131,6 +178,11 @@ export class Contact extends Component {
     return isValid;
   };
 
+  /**
+   * Handles changes to form fields.
+   *
+   * @param {*} e - The event object.
+   */
   handleChange = (e) => {
     const { t } = this.props;
     const { name, value } = e.target;
@@ -141,19 +193,30 @@ export class Contact extends Component {
     });
   };
 
-  handleSubmit = async (e) => {
-    const { t } = this.props;
-    e.preventDefault();
-    if (this.state.isSubmitting) return;
+  /**
+   * Handles errors that occur during form submission.
+   *
+   * @param {*} error - The error object.
+   */
+  returnError = () => {
     if (!this.validateForm()) {
       this.setState({
         isSubmitting: false,
-        submitMessage: t('contact.formError.formInvalid'),
+        submitMessage: this.props.t('contact.formError.formInvalid'),
         submitType: 'error'
       });
       return;
     }
-    const { formData } = this.state;
+  };
+
+
+  /**
+   * Validates the fields in the form data.
+   *
+   * @param {*} formData - The form data to validate.
+   * @returns {boolean} True if all fields are valid, false otherwise.
+   */
+  fieldsValidate = (formData) => {
     const allFieldsValid = Object.values(formData).every(value =>
       !this.containsSuspiciousCode(value)
     );
@@ -165,68 +228,96 @@ export class Contact extends Component {
       });
       return;
     }
-    this.setState({ isSubmitting: true, submitMessage: '', submitType: '' });
+  };
 
-    try {
-      const emailData = {
-        name: formData.name.trim(),
-        email: formData.email.trim(),
-        message: formData.message.trim(),
-        timestamp: new Date().toISOString(),
-        userAgent: navigator.userAgent,
-        referer: window.location.href
-      };
-    
-      const response = await fetch('https://xn--alexander-hrst-5pb.de/sendMail.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(emailData)
-      });
+  /**
+   * Sends an email.
+   *
+   * @param {*} emailData - The data to include in the email.
+   * @returns {Promise<Response>} The response from the email service.
+   */
+  sendEmail = async (emailData) => {
+    const response = await fetch('https://xn--alexander-hrst-5pb.de/sendMail.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(emailData)
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response;
+  }
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const result = await response.text();
-
-      if (result.includes('success') || result.includes('erfolgreich') || response.status === 200) {
-        this.setState({
-          isSubmitting: false,
-          submitMessage: t('contact.formSuccess'),
-          submitType: 'success',
-          formData: { name: '', email: '', message: '' },
-          errors: { name: '', email: '', message: '' }
-        });
-      } else {
-        throw new Error('Server returned error: ' + result);
-      }
-
-    } catch (error) {
-      console.error('Error sending email:', error);
-
-      let errorMessage = t('contact.formErrorGeneric');
-
-      if (error.name === 'TypeError' && error.message.includes('fetch')) {
-        errorMessage += t('contact.formErrorGeneric');
-      } else if (error.message.includes('404')) {
-        errorMessage += t('contact.formErrorGeneric');
-      } else if (error.message.includes('500')) {
-        errorMessage += t('contact.formErrorGeneric');
-      } else {
-        errorMessage += t('contact.formErrorGeneric');
-      }
-
+  /**
+   * Handles successful email sending.
+   *
+   * @param {*} result - The result of the email sending.
+   */
+  successEmail = async (result) => {
+    const { t } = this.props;
+    if (result.includes('success') || result.includes('erfolgreich') || response.status === 200) {
       this.setState({
         isSubmitting: false,
-        submitMessage: errorMessage,
-        submitType: 'error'
+        submitMessage: t('contact.formSuccess'),
+        submitType: 'success',
+        formData: { name: '', email: '', message: '' },
+        errors: { name: '', email: '', message: '' }
       });
+    } else {
+      throw new Error('Server returned error: ' + result);
     }
   };
 
+  /**
+   * Handles errors that occur during form submission.
+   *
+   * @param {*} error - The error object.
+   */
+  errorCatch = (error) => {
+    const { t } = this.props;
+    let errorMessage = t('contact.formErrorGeneric');
+    if (error.name === 'TypeError' && error.message.includes('fetch')) {
+      errorMessage += t('contact.formErrorGeneric');
+    } else if (error.message.includes('404')) {
+      errorMessage += t('contact.formErrorGeneric');
+    } else if (error.message.includes('500')) {
+      errorMessage += t('contact.formErrorGeneric');
+    } else {
+      errorMessage += t('contact.formErrorGeneric');
+    }
+    this.setState({
+      isSubmitting: false,
+      submitMessage: errorMessage,
+      submitType: 'error'
+    });
+  };
+
+  /**
+   * Handles the form submission.
+   *
+   * @param {*} e - The event object.
+   * @returns {Promise<void>}
+   */
+  handleSubmit = async (e) => {
+    const { t } = this.props;
+    e.preventDefault();
+    if (this.state.isSubmitting) return;
+    this.returnError();
+    const { formData } = this.state;
+    this.fieldsValidate(formData);
+    this.setState({ isSubmitting: true, submitMessage: '', submitType: '' });
+    try {
+      const emailData = { name: formData.name.trim(), email: formData.email.trim(), message: formData.message.trim(), timestamp: new Date().toISOString(), userAgent: navigator.userAgent, referer: window.location.href };
+      const response = await this.sendEmail(emailData);
+      const result = await response.text();
+      this.successEmail(result);
+    } catch (error) {
+      this.errorCatch(error);
+    }
+  };
 
   /**
    * Renders the contact page.

@@ -4,11 +4,18 @@ import '../../i18n/i18n';
 import './LanguageButton.css';
 
 export class LanguageButton extends Component {
+    /**
+     * Changes the language of the application.
+     *
+     * @param {string} lng - The language code to switch to.
+     */
     changeLanguage = (lng) => {
         this.props.i18n.changeLanguage(lng);
     };
 
-    // Toggle-Funktion für einen Button
+    /**
+     * Toggles the language between German and English.
+     */
     toggleLanguage = () => {
         const currentLang = this.props.i18n.language;
         const newLang = currentLang === 'de' ? 'en' : 'de';
@@ -36,7 +43,6 @@ export class LanguageButton extends Component {
                             className="width-button px-6 py-2 bg-gray-800/95 backdrop-blur-sm border border-gray-700 text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg transition-all flex items-center space-x-2 font-medium"
                         >
                             <span>{i18n.language === 'de' ? 'EN' : 'DE'}</span>
-
                         </button>
                     </div>
                 </div>

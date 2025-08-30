@@ -16,7 +16,7 @@ export class LegalNoticeContent extends Component {
         const { t, i18n } = this.props;
 
         return (
-            <>
+            <section>
                 <h1 className="text-4xl font-bold text-white mb-8">{t("legal-notice.title")}</h1>
                 <div className="prose prose-invert max-w-none">
                     <div className="text-gray-300 space-y-6 leading-relaxed">
@@ -49,7 +49,7 @@ export class LegalNoticeContent extends Component {
                         </section>
                     </div>
                 </div>
-            </>
+            </section>
         )
     }
 }
