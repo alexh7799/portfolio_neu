@@ -1,6 +1,3 @@
-# robots.txt für alexander-hörst.de
 User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://alexander-hörst.de/sitemap.xml
+Disallow: /
+Disallow: /.env

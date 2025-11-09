@@ -1,16 +1,31 @@
 <!doctype html>
 <html lang="de" translate="no">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
-    <meta name="description" content="Portfolio von Alexander Hörst - Webentwicklung, Fullstack Developer" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./src/index.css" rel="stylesheet">
-    <link rel="preload" as="image" href="/img/hero.svg" fetchpriority="high">
-    <title>Alexander Hörst</title>
-  </head>
-  <body>
-    <div id="root" class="dark"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; form-action 'self';" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+  <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload" />
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <meta name="robots" content="index,follow,noarchive" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="author" content="Alexander Hörst" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="Portfolio von Alexander Hörst - Webentwicklung, Fullstack Developer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./src/index.css" rel="stylesheet">
+  <link rel="preload" as="image" href="/img/hero.svg" fetchpriority="high">
+  <title>Alexander Hörst</title>
+</head>
+
+<body>
+  <div id="root" class="dark"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

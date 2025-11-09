@@ -15,7 +15,7 @@ export class SocialMedia extends Component {
      */
     render() {
         return (
-            <div className="max-w-7xl mx-auto flex items-center justify-end lg:justify-end space-x-3 pointer-events-none">
+            <div className="max-w-7xl mx-auto flex items-center justify-end lg:justify-end space-x-3 pointer-events-none py-2">
                 <a
                     href="https://github.com/alexh7799/"
                     target="_blank"
@@ -41,7 +41,7 @@ export class SocialMedia extends Component {
                 >
                     <Mail size={18} className="text-white" />
                 </a>
-                <LanguageButton />
+                
             </div>
         )
     }
