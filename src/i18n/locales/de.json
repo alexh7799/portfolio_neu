@@ -57,17 +57,18 @@
     "description": "Hier sind einige der Projekte, an denen ich kürzlich gearbeitet habe. Jedes Projekt zeigt meine Fähigkeiten und mein Engagement für die Bereitstellung hochwertiger Lösungen.",
     "jobs": [
       {
-        "title": "Join",
-        "description": "Aufgabenmanager inspiriert vom Kanban-System. Erstellen und organisieren Sie Aufgaben per Drag & Drop und weisen Sie Benutzer und Kategorien zu. In diesem Projekt habe ich gelernt, wie man Firebase als Backend-as-a-Service für Echtzeit-Datensynchronisation und Benutzerverwaltung implementiert. Die Entwicklung des Kanban-Boards mit Drag & Drop hat mir wertvolle Einblicke in die Gestaltung interaktiver Benutzeroberflächen gegeben.",
-        "image": "/img/join.svg",
+        "title": "KanMind",
+        "description": "Aufgabenmanager inspiriert vom Kanban-System. Erstellen und organisieren Sie Aufgaben per Drag & Drop und weisen Sie Benutzer und Kategorien zu. In diesem Projekt habe ich gelernt, wie man Django als Backend für Echtzeit-Datensynchronisation und Benutzerverwaltung implementiert. Die Entwicklung des Kanban-Boards mit Drag & Drop hat mir wertvolle Einblicke in die Gestaltung interaktiver Benutzeroberflächen gegeben.",
+        "image": "/img/kanMind.svg",
         "technologies": [
           "HTML",
           "CSS",
           "JavaScript",
-          "Firebase"
+          "Python",
+          "Django"
         ],
-        "liveUrl": "https://join.Alexander-Hörst.de/",
-        "githubUrl": "https://github.com/alexh7799/join_group_project"
+        "liveUrl": "https://kanmind.Alexander-Hörst.de/",
+        "githubUrl": "https://github.com/alexh7799/kanMind-backend"
       },
       {
         "title": "Pokedex",

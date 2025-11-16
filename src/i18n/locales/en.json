@@ -57,17 +57,18 @@
     "description": "Here are some of the projects I have worked on recently. Each project showcases my skills and dedication to delivering high-quality solutions.",
     "jobs": [
       {
-        "title": "Join",
-        "description": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories. In this project, I learned how to implement Firebase as a backend-as-a-service for real-time data synchronisation and user management. The development of the Kanban board with drag & drop gave me valuable insights into the design of interactive user interfaces.",
-        "image": "/img/join.svg",
+        "title": "KanMind",
+        "description": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories. In this project, I learned how to implement Django as a backend for real-time data synchronisation and user management. The development of the Kanban board with drag & drop gave me valuable insights into the design of interactive user interfaces.",
+        "image": "/img/kanMind.svg",
         "technologies": [
           "HTML",
           "CSS",
           "JavaScript",
-          "Firebase"
+          "Python",
+          "Django"
         ],
-        "liveUrl": "https://join.Alexander-Hörst.de/",
-        "githubUrl": "https://github.com/alexh7799/join_group_project"
+        "liveUrl": "https://kanmind.Alexander-Hörst.de/",
+        "githubUrl": "https://github.com/alexh7799/kanMind-backend"
       },
       {
         "title": "Pokedex",
