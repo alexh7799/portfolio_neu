@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import Footer from '../component/footer/Footer'
-import Navbar from '../component/navbar/navbar'
+import Navbar from '../component/navbar/Navbar'
 import SocialMedia from '../component/social-media/SocialMedia'
 import LegalNoticeContent from '../component/legal-notice/LegalNoticeContent'
 import { withTranslation } from 'react-i18next'

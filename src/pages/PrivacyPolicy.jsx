@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../component/navbar/navbar'
+import Navbar from '../component/navbar/Navbar'
 import SocialMedia from '../component/social-media/SocialMedia'
 import Footer from '../component/footer/Footer'
 import PrivacyPolicyContent from '../component/privacy-policy/PrivacyPolicyContent'

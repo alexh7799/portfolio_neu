@@ -1,5 +1,5 @@
 import { Component } from "react";
-import "./whymeCard.css";
+import "./whyMeCard.css";
 
 export class WhyMeCard extends Component {
     /**

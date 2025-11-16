@@ -1,5 +1,5 @@
 import React, { Component, lazy, Suspense } from 'react'
-import Navbar from '../component/navbar/navbar'
+import Navbar from '../component/navbar/Navbar'
 import SocialMedia from '../component/social-media/SocialMedia'
 import Hero from '../component/hero/Hero'
 import Footer from '../component/footer/Footer'

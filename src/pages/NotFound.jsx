@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 import './../i18n/i18n';
 import SocialMedia from '../component/social-media/SocialMedia';
 import Footer from '../component/footer/Footer';
-import Navbar from '../component/navbar/navbar';
+import Navbar from '../component/navbar/Navbar';
 
 export class NotFound extends Component {
     /**

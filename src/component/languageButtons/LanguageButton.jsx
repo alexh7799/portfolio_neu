@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { withTranslation } from 'react-i18next';
 import '../../i18n/i18n';
-import './LanguageButton.css';
+import './languageButton.css';
 
 export class LanguageButton extends Component {
     /**
